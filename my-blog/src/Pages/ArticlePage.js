@@ -3,6 +3,7 @@ import articleContent from './article-content';
 
 const ArticlePage = ({match}) => {
 
+    //Consuming value from the URL and displaying the relative article from the article-content file
     const name = match.params.name;
     const displayArticle = articleContent.find(displayArticle => displayArticle.name === name);
     
