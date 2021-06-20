@@ -1,6 +1,7 @@
 import React from 'react';
 import articleContent from './article-content';
 import ArticleList from '../components/ArticleList';
+import NotFoundPage from './NotFoundPage';
 
 const ArticlePage = ({match}) => {
 
@@ -9,7 +10,7 @@ const ArticlePage = ({match}) => {
     const displayArticle = articleContent.find(displayArticle => displayArticle.name === name);
     
     //if article does not exist
-    if(!displayArticle) return<h1>Article does not exist !</h1>
+    if(!displayArticle) return <NotFoundPage/>
 
     //filter out the other articles to pass thorugh the props in articleList
     const otherArticles = articleContent.filter(displayArticle => displayArticle.name !== name);
