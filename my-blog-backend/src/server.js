@@ -20,7 +20,7 @@ const articleInfo = {
 app.post('/api/articles/:name/upvote',(req,res)=> {
     const articleName = req.params.name;
     articleInfo[articleName].upvotes +=1;
-    res.status(200).send(`${articleName} has now ${articleInfo[articleName].upvotes} upvotes.`)
+    res.status(200).send(`${articleName} has now ${articleInfo[articleName].upvotes} upvotes!.`)
 
 })
 
