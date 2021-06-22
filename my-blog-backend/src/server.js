@@ -8,22 +8,33 @@ const app = express();
 
 app.use(bodyParser.json());
 
-//connecting with local mongo database
-app.get('/api/articles/:name', async (req,res)=> {
+const withDB = async (operations,res) => {
     try {
-        const articleName = req.params.name;
-
+        
         const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
         const db = client.db('my-blog');
     
-        const articleInfo = await db.collection('articles').findOne({ name:articleName});
-        res.status(200).json(articleInfo);
+        await operations(db);
     
         client.close();
     }
     catch(error) {
         res.status(500).json({ message:'Error connecting to db',error})
     }
+}
+
+//connecting with local mongo database
+app.get('/api/articles/:name', async (req,res)=> {
+
+        withDB(async (db) => {
+            
+            const articleName = req.params.name;
+
+            const articleInfo = await db.collection('articles').findOne({ name:articleName});
+            res.status(200).json(articleInfo);
+        },res);
+
+    
 })
 
 
@@ -33,27 +44,22 @@ app.get('/api/articles/:name', async (req,res)=> {
 
 app.post('/api/articles/:name/upvote', async (req,res)=> {
 
-    try {
-        const articleName = req.params.name;
+        withDB(async (db) => {
     
-        const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
-        const db = client.db('my-blog');
+            const articleName = req.params.name;
     
-        const articleInfo = await db.collection('articles').findOne({name:articleName});
-        //query for incrementing vote
-        await db.collection('articles').updateOne({name:articleName}, {
-            '$set': {
-                upvotes:articleInfo.upvotes + 1,
-            }
-        });
-    
-        const updatedArticleInfo = await db.collection('articles').findOne({name:articleName});
-    
-        res.status(200).json(updatedArticleInfo);
-    }
-    catch(error) {
-        res.status(500).json({ message:'Error connecting to db',error})
-    }
+            const articleInfo = await db.collection('articles').findOne({name:articleName});
+            //query for incrementing vote
+            await db.collection('articles').updateOne({name:articleName}, {
+                '$set': {
+                    upvotes:articleInfo.upvotes + 1,
+                }
+            });
+        
+            const updatedArticleInfo = await db.collection('articles').findOne({name:articleName});
+        
+            res.status(200).json(updatedArticleInfo);
+        },res);
 
 })
 
