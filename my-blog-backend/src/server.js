@@ -1,19 +1,23 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 const app = express();
+
+
+app.use(bodyParser.json());
 
 const articleInfo = {
     'learn-react': {
         upvotes: 0,
-        //comments:[],
+        comments:[],
     },
     'learn-node': {
         upvotes: 0,
-        // comments:[],
+        comments:[],
     },
     'my-thoughts-on-resumes': {
         upvotes: 0,
-        // comments:[],
+        comments:[],
     },
 }
 
@@ -27,16 +31,15 @@ app.post('/api/articles/:name/upvote',(req,res)=> {
 
 })
 
-// app.post('/api/articles/:name/add-comment', (req, res) => {
+app.post('/api/articles/:name/add-comment', (req, res) => {
     
+    const { username, text } = req.body;
+    const articleName = req.params.name;
     
-//     const articleName = req.params.name;
-//     const { username, text } = req.body;
-    
-//     articlesInfo[articleName].comments.push({ username, text });
+    articleInfo[articleName].comments.push({ username, text });
 
-//     res.status(200).send(articlesInfo[articleName]);
-// });
+    res.status(200).send(articleInfo[articleName]);
+});
 
 
 app.listen(8000,()=>console.log("Listening to the port 8000"));
