@@ -11,9 +11,20 @@ const ArticlePage = ({match}) => {
     
     const [articleInfo,setArticleInfo] = useState({ upvotes:0, comments:[] });
 
+    //fetching from data
     useEffect(()=>{
-        setArticleInfo({upvotes:7});
-    },[]);
+        //setArticleInfo({upvotes:Math.ceil(Math.random()*10)});
+        const fetchData = async () => {
+            const result = await fetch(`/api/articles/${name}`);
+            const body = await result.json();
+            //console.log(body);
+            setArticleInfo(body);
+        }
+        fetchData();
+
+    },[name]);
+
+
     //if article does not exist
     if(!displayArticle) return <NotFoundPage/>
 
@@ -25,7 +36,7 @@ const ArticlePage = ({match}) => {
         <>
             <h1>{displayArticle.title} </h1>
             <p><em>This post has been upvoted {articleInfo.upvotes} times.</em></p>
-                {displayArticle.content.map(item=>(<p key={item.name}>{item}</p> ))}
+                {displayArticle.content.map((item,key)=>(<p key={key}>{item}</p> ))}
             <hr/>
             <ArticleList articlesprops={otherArticles} />
         </>
