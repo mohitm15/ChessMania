@@ -1,6 +1,7 @@
 import React,{useState, useEffect } from 'react';
 import articleContent from './article-content';
 import ArticleList from '../components/ArticleList';
+import CommentsList from '../components/CommentsList';
 import NotFoundPage from './NotFoundPage';
 
 const ArticlePage = ({match}) => {
@@ -37,6 +38,9 @@ const ArticlePage = ({match}) => {
             <h1>{displayArticle.title} </h1>
             <p><em>This post has been upvoted {articleInfo.upvotes} times.</em></p>
                 {displayArticle.content.map((item,key)=>(<p key={key}>{item}</p> ))}
+            <div>
+                <CommentsList comments={articleInfo.comments}/>
+            </div>
             <hr/>
             <ArticleList articlesprops={otherArticles} />
         </>
