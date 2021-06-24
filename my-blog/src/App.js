@@ -7,6 +7,7 @@ import ArticlesListPage from './Pages/ArticlesListPage';
 import ArticlePage from './Pages/ArticlePage';
 import NotFoundPage from './Pages/NotFoundPage';
 import Navbar from './navbar';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route component={NotFoundPage}/>
             </Switch>
           </div>
+          <Footer />
         </div>
     </Router>
 

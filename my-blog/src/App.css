@@ -100,3 +100,26 @@ nav a:hover {
   border-bottom: 2px solid black;
   padding: 16px;
 }
+
+.about-paragraph {
+  text-align: justify;
+}
+.chess-setup {
+  text-align: center;
+}
+.chess-wallpaper {
+  width: 95%;
+  height: 95%;
+  padding: 2% 2% 2% 0%;
+}
+.chess-moves {
+  height: 60%;
+  width: 80%  ;
+  padding: 5%;
+  transition: 0.5s all ease-in-out;
+}
+
+.chess-moves:hover {
+  transform: scale(1.8);
+  overflow: hidden;
+}
