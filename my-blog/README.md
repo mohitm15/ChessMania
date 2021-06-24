@@ -1,9 +1,9 @@
-# my-blog
+# ChessMania
 
 ![chess](https://user-images.githubusercontent.com/35539313/122878555-83b09200-d355-11eb-96f0-7806a50975cf.jpg)
 
 
-This is a website to read `Chess Articles`.
+ChessMania is a website to read `Chess Articles`.
 
 ## Introduction
 
