@@ -103,6 +103,7 @@ nav a:hover {
   padding: 16px;
 }
 
+/* About Page */
 .about-paragraph {
   text-align: justify;
 }
@@ -124,4 +125,12 @@ nav a:hover {
 .chess-moves:hover {
   transform: scale(1.8);
   overflow: hidden;
+}
+
+/* Homepage */
+
+main {
+  text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
 }

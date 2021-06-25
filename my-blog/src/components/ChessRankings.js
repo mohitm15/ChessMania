@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Button, Nav } from 'react-bootstrap';
-
+import '../App.js'
 
 class ChessRankings extends Component {
     constructor(props) {
@@ -24,18 +24,18 @@ class ChessRankings extends Component {
         <div>
             <Nav fill justify variant="tabs" >
                 <Nav.Item>
-                    <Button onClick={this.handleClick} value="classical" style={{flexDirection:"row" , justifyContent:"space-around"}}>
-                        Classical
+                    <Button onClick={this.handleClick} value="classical" variant="outline-dark" style={{flexDirection:"row" , width:"100%"}}>
+                        <b>Classical</b>
                     </Button>
                 </Nav.Item>
                 <Nav.Item>
-                    <Button onClick={this.handleClick} value="rapid">
-                        Rapid
+                    <Button onClick={this.handleClick} value="rapid" variant="outline-dark" style={{flexDirection:"row" , width:"100%"}}>
+                        <b>Rapid</b>
                     </Button>
                 </Nav.Item>
                 <Nav.Item>
-                    <Button onClick={this.handleClick} value="blitz">
-                        Blitz
+                    <Button onClick={this.handleClick} value="blitz" variant="outline-dark" style={{flexDirection:"row" , width:"100%"}}>
+                        <b>Blitz</b>
                     </Button>
                 </Nav.Item>
             </Nav>
