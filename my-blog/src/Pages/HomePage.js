@@ -1,32 +1,36 @@
 import React from 'react';
+import ChessRankings from '../components/ChessRankings';
+import '../App.css'
+
+import ChessMeme from '../assets/chessmeme.jpg';
 
 const HomePage = () => (
     <>
-        <h1>Hello , Welcome to my blog !</h1>
-        <p>
-            Welcome to my blog! Proin congue
-            ligula id risus posuere, vel eleifend ex egestas. Sed in turpis leo. 
-            Aliquam malesuada in massa tincidunt egestas. Nam consectetur varius turpis, 
-            non porta arcu porttitor non. In tincidunt vulputate nulla quis egestas. Ut 
-            eleifend ut ipsum non fringilla. Praesent imperdiet nulla nec est luctus, at 
-            sodales purus euismod.
+        <h1>Hello , Welcome to Chess Mania</h1>
+        <br />
+        <p className="about-paragraph">
+            ChessMania is a website which gives latest update for the chess. Chess is 
+            one of the most tactical game played across the globe. Here our main focus is 
+            to present cthe various chess articles. However this website also covers the basics learning 
+            objectives of chess as well as current chess rankings at the international level.
         </p>
-        <p>
-            Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices dapibus. 
-            Nam blandit tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan 
-            nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec finibus lectus 
-            sed lorem ultricies, eget ornare leo luctus. Morbi vehicula, nulla eu tempor 
-            interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
-            consequat quam. Vivamus accumsan dui in facilisis aliquet.,
+        <p className="about-paragraph">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <p>
-            Etiam nec lectus urna. Sed sodales ultrices dapibus. 
-            Nam blandit tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan 
-            nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec finibus lectus 
-            sed lorem ultricies, eget ornare leo luctus. Morbi vehicula, nulla eu tempor 
-            interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
-            consequat quam. Vivamus accumsan dui in facilisis aliquet.,
-        </p>
+        <div className="chess-setup">
+            <img className="chess-wallpaper" src={ChessMeme} alt="Chess Meme"/>
+        </div>
+        <div style={{marginTop:"5%"}}>
+            <h1 style={{padding:"3%"}}>Top 10 Current Chess Players</h1>
+            <h4 style={{padding:"0% 3% 3% 3%"}}>Open Section</h4>
+            <ChessRankings />
+        </div>
+        
     </>
 );
 
