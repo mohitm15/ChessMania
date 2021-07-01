@@ -61,6 +61,9 @@ class ChessRankings extends Component {
             pulvinar turpis quis mi pretium pellentesque. In luctus, leo sit amet
             egestas sagittis, ipsum mauris lobortis orci.
           </p>
+          <div>
+          <a href="https://2700chess.com" target="_blank"><img border="0" src="https://2700chess.com/files/topten.png" alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list"/></a>
+          </div>
         </div>
       );
     }
@@ -74,6 +77,9 @@ class ChessRankings extends Component {
             Id consectetur urna misao eu justo. In hac habitasse platea dictumst.
             Maecenas non convallis nunc. Cras maximus, nulla in feugiat
             condimentum, neque metus varius arcu.
+            <div>
+            <a href="https://2700chess.com" target="_blank"><img border="0" src="https://2700chess.com/files/topten.png" alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list"/></a>
+            </div>
           </p>
         </div>
       );
@@ -88,6 +94,9 @@ class ChessRankings extends Component {
           <p>
             Oyid eleifend turpis elit sed est. Donec facilisis justo elit, in
             consectetur nulla pretium vitae.
+            <div>
+            <a href="https://2700chess.com" target="_blank"><img border="0" src="https://2700chess.com/files/topten.png" alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list"/></a>
+            </div>
           </p>
         </div>
       );
