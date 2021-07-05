@@ -27,7 +27,7 @@ const HomePage = () => (
         </div>
         <div style={{marginTop:"5%"}}>
             <h1 style={{padding:"3%"}}>Top 10 Current Chess Players</h1>
-            <h4 style={{padding:"0% 3% 3% 3%"}}>Open Section</h4>
+            <h4 style={{padding:"0% 3% 3% 3%"}}>Chess Rankings</h4>
             <ChessRankings />
         </div>
         
