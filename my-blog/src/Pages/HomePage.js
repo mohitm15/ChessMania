@@ -8,6 +8,7 @@ const HomePage = () => (
     <>
         <h1>Hello , Welcome to Chess Mania</h1>
         <br />
+        <hr />
         <p className="about-paragraph">
             ChessMania is a website which gives latest update for the chess. Chess is 
             one of the most tactical game played across the globe. Here our main focus is 

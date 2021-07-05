@@ -15,6 +15,9 @@ class Navbar extends React.Component {
                     <li>
                         <Link to="/articles-list">Articles</Link>
                     </li>
+                    <li>
+                        <Link to="/FAQ">FAQ</Link>
+                    </li>
                 </ul>
             </nav>
         )

@@ -7,6 +7,8 @@ import '../App.css';
 const AboutPage = () => (
     <>
         <h1>About Chess</h1>
+        <br />
+        <hr />
         <h3>Introduction</h3>
         <div className="about-paragraph">
             <p>

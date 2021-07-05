@@ -6,6 +6,7 @@ import AboutPage from './Pages/AboutPage';
 import ArticlesListPage from './Pages/ArticlesListPage';
 import ArticlePage from './Pages/ArticlePage';
 import NotFoundPage from './Pages/NotFoundPage';
+import FAQPage from './Pages/FAQPage';
 import Navbar from './navbar';
 import Footer from './components/Footer';
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
             <Route path="/about" component={AboutPage}/>
             <Route path="/articles-list" component={ArticlesListPage}/>
             <Route path="/article/:name" component={ArticlePage}/>
+            <Route path="/FAQ" component={FAQPage} />
             <Route component={NotFoundPage}/>
             </Switch>
           </div>
