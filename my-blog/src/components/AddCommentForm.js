@@ -21,11 +21,12 @@ const AddCommentForm = ({articleName, setArticleInfo}) => {
 
     return (
         <div id="add-comment-form">
-            <h3>Add a Comment</h3>
+            <h3>Add a Comment Here...</h3>
             <label>
                 Name:
                 <input type="text" value={username} onChange={(event)=>setUsername(event.target.value)}/>
             </label>
+            <br/>
             <label>
                 Comment:
                 <textarea rows="4" col="50" value={commentText} onChange={(event)=>setCommentText(event.target.value)}/>

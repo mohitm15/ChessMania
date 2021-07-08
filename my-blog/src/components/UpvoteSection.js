@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const UpvoteSection = ({articleName , upvotes, setArticleInfo}) => {
 
     const upvoteArticle = async () => {

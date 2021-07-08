@@ -82,8 +82,10 @@ nav a:hover {
 }
 
 #add-comment-form {
-  border-bottom: 2px solid black;
-  padding: 16px;
+  margin-top: 5%;
+  border: 2px dashed black;
+  padding: 15px;
+  background-color: skyblue;
 }
 
 #add-comment-form h3 {
@@ -92,7 +94,7 @@ nav a:hover {
 
 #add-comment-form input, textarea {
   display: block;
-  width: 300px;
+  width:700px;
   padding: 8px;
   border-radius: 8px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -102,7 +104,9 @@ nav a:hover {
 }
 
 #add-comment-form button {
-  width: 320px;
+  width:fit-content;
+  margin-top: 5%;
+  align-items: center;
 }
 
 #upvotes-section button, p {
