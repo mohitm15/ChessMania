@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button } from 'react-bootstrap';
 
 const UpvoteSection = ({articleName , upvotes, setArticleInfo}) => {
 
@@ -13,8 +13,8 @@ const UpvoteSection = ({articleName , upvotes, setArticleInfo}) => {
 
     return (
     <div id="upvotes-section">
-        <button name="Add vote" onClick={()=> upvoteArticle()}>Add Vote</button>
-        <p><em>This post has been upvoted {upvotes} times.</em></p>
+        <Button name="Add vote" onClick={()=> upvoteArticle()} variant="outline-danger">Like</Button>
+        <p> {upvotes} Likes</p>
     </div>
 
     );

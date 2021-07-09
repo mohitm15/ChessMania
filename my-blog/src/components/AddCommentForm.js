@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Button } from 'react-bootstrap';
 
 const AddCommentForm = ({articleName, setArticleInfo}) => {
     
@@ -31,7 +32,7 @@ const AddCommentForm = ({articleName, setArticleInfo}) => {
                 Comment:
                 <textarea rows="4" col="50" value={commentText} onChange={(event)=>setCommentText(event.target.value)}/>
             </label>
-            <button onClick={()=>addComment()}>Add Comment</button>
+            <Button variant="info" onClick={()=>addComment()}>Add Comment</Button>
         </div>
     )
     

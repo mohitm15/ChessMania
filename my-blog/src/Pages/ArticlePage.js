@@ -39,9 +39,9 @@ const ArticlePage = ({match}) => {
 
     return (
         <>
-            <h1>{displayArticle.title} </h1>
-                <UpvoteSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
+            <h1>{displayArticle.title} </h1><br/>
                 {displayArticle.content.map((item,key)=>(<p key={key}>{item}</p> ))}
+                <UpvoteSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
             <div>
                 <CommentsList comments={articleInfo.comments}/>
                 <AddCommentForm articleName={name} setArticleInfo={setArticleInfo}/>
