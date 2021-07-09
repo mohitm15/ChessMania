@@ -9,6 +9,7 @@ import NotFoundPage from './Pages/NotFoundPage';
 import FAQPage from './Pages/FAQPage';
 import Navbar from './navbar';
 import Footer from './components/Footer';
+import TimeZoneComponent from './components/Timezone';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/FAQ" component={FAQPage} />
             <Route component={NotFoundPage}/>
             </Switch>
+            <TimeZoneComponent />
           </div>
           <Footer />
         </div>

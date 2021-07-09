@@ -165,4 +165,15 @@ main {
   margin: 50px auto;
 }
 
-/* Upvote section */
+/* timezone */
+.timezone {
+  text-align: center;
+  text-justify: inter-word;
+  background-color: aliceblue;
+  border: 2px black dashed;
+  padding:2%;
+  font-size: larger;
+  font-weight: 900;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-variant: inherit;
+}

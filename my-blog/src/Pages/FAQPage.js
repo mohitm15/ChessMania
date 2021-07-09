@@ -1,7 +1,9 @@
 import React from 'react';
+import TimeZoneComponent from '../components/Timezone';
 
 const FAQPage = () => {
     let a=1;
+    
     return (
         <>
             <div>
