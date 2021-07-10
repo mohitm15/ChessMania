@@ -177,3 +177,27 @@ main {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-variant: inherit;
 }
+
+#timezone-input {
+  margin-top: 5%;
+}
+
+
+#timezone-input label{
+  text-align: center;
+  padding: 2%;
+  background-color:white;
+  color: black;
+  border-style:ridge;
+}
+
+#timezone-input input{
+  text-align: center;
+  margin: 2%;
+  background-color: white;
+  color: black;
+}
+
+.timezone-button {
+  margin-top: 3%;
+}
