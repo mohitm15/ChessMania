@@ -1,4 +1,6 @@
 import React from 'react';
+
+import WorldMapSection from '../components/WorldMapSection';
 import ChessSetup from '../assets/chees.png';
 import ChessMoves from '../assets/chess-moves.png';
 import Chess from '../assets/chess.jpg';
@@ -46,6 +48,14 @@ const AboutPage = () => (
                     <img className="chess-moves" src={ChessMoves} alt="Chess Moves"/>
                 </div>
             </p>
+        </div>
+        <h3>Popularity of Chess</h3>
+        <div className="about-paragraph">
+            <p>
+                Chess is very popular sport across the globe. The highest title a player can achive in chess is a title of <em>GrandMaster</em>.
+                Following is the total GMs present currently in the world from different countries.
+            </p>
+            <WorldMapSection />
         </div>
     </>
 );

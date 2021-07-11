@@ -201,3 +201,12 @@ main {
 .timezone-button {
   margin-top: 3%;
 }
+
+/* Worldmap */
+
+.map {
+  border: 1px groove blue;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  padding: 2%;
+}
