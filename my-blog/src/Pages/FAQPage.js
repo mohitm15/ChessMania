@@ -1,5 +1,5 @@
 import React from 'react';
-import TimeZoneComponent from '../components/Timezone';
+import LichessProfileComponent from '../components/lichessProfile';
 
 const FAQPage = () => {
     let a=1;
@@ -49,6 +49,9 @@ const FAQPage = () => {
                     </div>
                     <hr />
                 </section>
+            </div>
+            <div>
+                <LichessProfileComponent />
             </div>
         </>
     )

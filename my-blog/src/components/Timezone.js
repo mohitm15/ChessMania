@@ -22,11 +22,11 @@ const TimeZoneComponent = () => {
     }
 
 
-    const timeZone = (city) => {
-        fetch(`http://worldtimeapi.org/api/timezone/Asia/${city}`)
+    async function timeZone(city) {
+        await fetch(`http://worldtimeapi.org/api/timezone/Asia/${city}`)
         .then((response)=>response.json())
         .then((json)=>{
-            console.log(json);
+            //console.log(json);
             setData(json);
         })
     }
@@ -38,6 +38,20 @@ const TimeZoneComponent = () => {
     },[])
 
     let mystr = JSON.stringify(data.datetime);
+
+    console.log("city typed  =  "+city);
+    
+    const cityToCodeMatcher = (city) => {
+        let code;
+        if(city === "Kolkata") code='IN';
+        else if(city === "Tokyo") code='JP';
+        return code;
+    }
+
+    const readySRC = (city) => {
+        let temp =  "https://www.countryflags.io/".concat(cityToCodeMatcher(city));
+        return temp.concat("/shiny/64.png");
+    }
 
 
 
@@ -55,6 +69,9 @@ const TimeZoneComponent = () => {
             Date: {mystr?.slice(1,11)} <br/>
             Time: {mystr?.slice(12,20)} <br/>
             Timezone: {data.timezone}
+            <div>
+                <img src={readySRC({city})} alt="Country flag"/>
+            </div>
         </div>
         </>
     );
