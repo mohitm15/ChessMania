@@ -11,6 +11,7 @@ import Navbar from './navbar';
 import Footer from './components/Footer';
 import TimeZoneComponent from './components/Timezone';
 import './App.css';
+import LichessProfilePage from './Pages/LichessProfilePage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/articles-list" component={ArticlesListPage}/>
             <Route path="/article/:name" component={ArticlePage}/>
             <Route path="/FAQ" component={FAQPage} />
+            <Route path="/lichess-profile" component={LichessProfilePage}/>
             <Route component={NotFoundPage}/>
             </Switch>
             <TimeZoneComponent />
