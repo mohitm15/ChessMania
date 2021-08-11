@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { Button, Container,Row, Col, Alert } from 'react-bootstrap';
 import CardFlipComponent from './CardFlip';
+import { Doughnut } from 'react-chartjs-2';
 
 
 
@@ -47,7 +48,7 @@ const LichessProfileComponent = () => {
     let classicalRating = JSON.stringify(data?.perfs?.classical?.rating);
     let chess960Rating = JSON.stringify(data?.perfs?.chess960?.rating);
     let antichessRating = JSON.stringify(data?.perfs?.antichess?.rating);
-    let racingRating = JSON.stringify(data?.perfs?.racingKings?.rating);
+    let checkRating = JSON.stringify(data?.perfs?.threecheck?.rating);
     let atomicRating = JSON.stringify(data?.perfs?.atomic?.rating);
     let hordeRating = JSON.stringify(data?.perfs?.horde?.rating);
 
@@ -59,6 +60,53 @@ const LichessProfileComponent = () => {
     };
 
 
+    // const datum = {
+    //     labels: ['Wins','Draws','Losses'],
+    //     dataSets: [
+    //         {
+    //             label: 'Totals Games Played',
+    //             dete :[4,5,6],
+    //             borderColor:[
+    //                 'green',
+    //                 'blue',
+    //                 'red'
+    //             ],
+    //             backgroundColor: [
+    //                 'green',
+    //                 'blue',
+    //                 'red'
+    //             ]
+    //         }
+    //     ]
+    // };
+        
+    const datum = {
+        labels: ['Win', 'Draw', 'Loss' ],
+        datasets: [
+          {
+            label: '# of Games',
+            data: [totalWins, totalDraws, totalLoss],
+            backgroundColor: [
+              'rgb(8, 184, 8)',
+              'blue',
+              'red',
+            ],
+            borderColor: [
+              'black',
+              'black',
+              'black',
+            ],
+            borderWidth: 1,
+          },
+        ],
+    };
+    
+    const options = {
+        title:{
+            text:"No. of Games",
+            display: true,
+        }
+    }
 
     return(
         <div>
@@ -71,7 +119,7 @@ const LichessProfileComponent = () => {
             </div>
             <div className="profileContainer">
                 <Container>
-                    <Alert variant={'dark'}>
+                    <Alert variant={'success'}>
                         <Row>
                             <Col></Col>
                             <Col className='titleOfUser'>{titleOfUser?.slice(1,-1)}</Col>
@@ -97,51 +145,56 @@ const LichessProfileComponent = () => {
                     </Alert>
                     <Alert variant={'success'}>
                         <Row>
-                            <Col className="fullName">Performance</Col>
-                            <Col className="totalGame">{totalGames} : <span style={{color:'green'}}>{totalWins} </span> / <span style={{color:'blue'}}>{totalDraws} </span> / <span style={{color:'red'}}>{totalLoss}</span></Col>
-                        </Row>
-                    </Alert>
-                    <Alert variant={'success'}>
-                        <Row>
                             <Col className="fullName">Ratings</Col>
                             <Col className="totalGame"> <span > {bulletRating} </span> | <span>{blitzRating} </span> | <span>{rapidRating}</span></Col>
                         </Row>
                     </Alert>
-                    <Row style={{marginBottom:'1%'}}>
-                        <Col>
-                            <CardFlipComponent  gameName="Bullet" gameRating={bulletRating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="Blitz" gameRating={blitzRating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="Rapid" gameRating={rapidRating} />
-                        </Col>
-                    </Row>
-                    <Row style={{marginTop:'1%',marginBottom:'1%'}}>
-                        <Col>
-                            <CardFlipComponent  gameName="Classical" gameRating={classicalRating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="Chess960" gameRating={chess960Rating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="AntiChess" gameRating={antichessRating} />
-                        </Col>
-                    </Row>
-                    <Row style={{marginTop:'1%'}}>
-                        <Col>
-                            <CardFlipComponent  gameName="RacingKings" gameRating={racingRating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="Atomic" gameRating={atomicRating} />
-                        </Col>
-                        <Col>
-                            <CardFlipComponent  gameName="Horde" gameRating={hordeRating} />
-                        </Col>
-                    </Row>
-
-                    
+                    <Alert variant={'dark'}>
+                        <div className="d-flex bd-highlight example-parent">
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Bullet" gameRating={bulletRating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Blitz" gameRating={blitzRating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Rapid" gameRating={rapidRating} />
+                            </div>
+                        </div>
+                        <div className="d-flex bd-highlight example-parent">
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Classical" gameRating={classicalRating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Chess960" gameRating={chess960Rating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="AntiChess" gameRating={antichessRating} />
+                            </div>
+                        </div>
+                        <div className="d-flex bd-highlight example-parent">
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="3Check" gameRating={checkRating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Atomic" gameRating={atomicRating} />
+                            </div>
+                            <div className="p-2 flex-fill bd-highlight col-example">
+                                <CardFlipComponent  gameName="Horde" gameRating={hordeRating} />
+                            </div>
+                        </div>
+                    </Alert>
+                    <Alert variant={'success'}>
+                        <Row>
+                            <Col className="fullName">Performance</Col>
+                            <Col className="totalGame">{totalGames} : <span style={{color:'green'}}>{totalWins} </span> / <span style={{color:'blue'}}>{totalDraws} </span> / <span style={{color:'red'}}>{totalLoss}</span></Col>
+                        </Row>
+                    </Alert>
+                    <Alert variant={'dark'}>
+                        <div className="doughNutChart">
+                            <Doughnut data={datum} options={options}/>
+                        </div>
+                    </Alert>
                     Name : {username} <br/>
                     Blitz rating : {blitzRating} <br/>
                     Bullet rating : {bulletRating} <br/>

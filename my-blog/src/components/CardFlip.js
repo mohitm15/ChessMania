@@ -14,7 +14,7 @@ const CardFlipComponent = (props) => {
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" cardStyles={{height:'130%'}}>
             <div className="frontCard">
-            <span style={{fontSize:'325%'}}>{props.gameName}</span> <span style={{fontSize:'120%'}}>RATING</span>    
+            <span style={{fontSize:'225%'}}>{props.gameName}</span><br/> <span style={{fontSize:'120%'}}>RATING</span>    
                 <br />
                 <div style={{ padding:'5%'}}>
                     <Button variant="outline-secondary" onClick={cardFlip}>See</Button>

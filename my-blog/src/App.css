@@ -258,17 +258,28 @@ main {
 }
 
 .frontCard,.backCard {
-  border: 1px ridge black;
-  padding: 5%;
+  border: 1px ridge white;
+  padding: 10% 5% 5% 5%;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: black;
+  color: white;
   font-family: 'Special Elite', cursive;
   min-height: max-content;
+  background-color: rgba(0, 0, 0, 0.849);
+  height: 200px;
+  width: 195px;
   }
 
 .frontCardFont {
   font-size: large;
   text-transform: uppercase;
+}
+
+.doughNutChart {
+  scale: 0.9;
+  height: 50%;
+  width: 50%;
+  margin-left: 20%;
+  padding: 2%;
 }
