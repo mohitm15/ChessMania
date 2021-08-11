@@ -6,7 +6,7 @@ const LichessProfilePage = () => {
 
     return(
         <>
-        <div className="container">
+        <div>
             <h1>Search Any Lichess Profile here ...</h1>
             <div>
                 <LichessProfileComponent />

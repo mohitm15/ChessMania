@@ -210,3 +210,65 @@ main {
   margin-top: 5%;
   padding: 2%;
 }
+
+
+/* Lichess User Page */
+
+.profileContainer {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2%;
+  border: 1px dashed brown;
+}
+
+.titleOfUser {
+  color: red;
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  text-align: end;
+}
+
+.userName {
+  color: black;
+  font-size: xx-large;
+  font-weight: 800;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: none;
+  text-align: end;
+}
+
+.followerRow {
+  padding-top: 2%;
+  font-size: medium;
+  text-align: center;
+}
+
+.fullName {
+  color: rgb(56, 20, 27);
+  font-stretch: expanded  ;
+  font-variant: inherit;
+  font-weight: 600;
+}
+
+.totalGame {
+  text-align: end;
+  font-weight: 600;
+}
+
+.frontCard,.backCard {
+  border: 1px ridge black;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-family: 'Special Elite', cursive;
+  min-height: max-content;
+  }
+
+.frontCardFont {
+  font-size: large;
+  text-transform: uppercase;
+}
