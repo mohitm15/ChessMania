@@ -234,7 +234,7 @@ main {
   color: black;
   font-size: xx-large;
   font-weight: 800;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Love Ya Like A Sister', cursive;
   text-transform: none;
   text-align: end;
 }
@@ -281,5 +281,19 @@ main {
   height: 50%;
   width: 50%;
   margin-left: 20%;
+  padding: 2%;
+}
+
+#donutText {
+  text-align: center;
+  margin-left: 15%;
+  font-weight: 700;
+}
+
+.pieChart {
+
+  height: 70%;
+  width: 70%;
+  margin-left: 10%;
   padding: 2%;
 }

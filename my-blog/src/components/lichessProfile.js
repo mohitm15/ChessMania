@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { Button, Container,Row, Col, Alert } from 'react-bootstrap';
 import CardFlipComponent from './CardFlip';
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut,Pie } from 'react-chartjs-2';
 
 
 
@@ -52,6 +52,17 @@ const LichessProfileComponent = () => {
     let atomicRating = JSON.stringify(data?.perfs?.atomic?.rating);
     let hordeRating = JSON.stringify(data?.perfs?.horde?.rating);
 
+    let bulletGames = JSON.stringify(data?.perfs?.bullet?.games);
+    let blitzGames = JSON.stringify(data?.perfs?.blitz?.games);
+    let rapidGames = JSON.stringify(data?.perfs?.rapid?.games);
+    let classGames = JSON.stringify(data?.perfs?.classical?.games);
+    let ubulletGames = JSON.stringify(data?.perfs?.ultrabullet?.games);
+    let c960Games = JSON.stringify(data?.perfs?.chess960?.games);
+    let antichessGames = JSON.stringify(data?.perfs?.antichess?.games);
+    let crazyGames = JSON.stringify(data?.perfs?.crazyhouse?.games);
+    let racingKingGames = JSON.stringify(data?.perfs?.racingKings?.games);
+    let threecheckGames = JSON.stringify(data?.perfs?.threecheck?.games);
+
 
     function getData(val) {
         //console.log(val.target.value);
@@ -59,29 +70,12 @@ const LichessProfileComponent = () => {
         setPrint(false);
     };
 
-
-    // const datum = {
-    //     labels: ['Wins','Draws','Losses'],
-    //     dataSets: [
-    //         {
-    //             label: 'Totals Games Played',
-    //             dete :[4,5,6],
-    //             borderColor:[
-    //                 'green',
-    //                 'blue',
-    //                 'red'
-    //             ],
-    //             backgroundColor: [
-    //                 'green',
-    //                 'blue',
-    //                 'red'
-    //             ]
-    //         }
-    //     ]
-    // };
         
     const datum = {
         labels: ['Win', 'Draw', 'Loss' ],
+        animation:{
+            animationScale:true
+        },
         datasets: [
           {
             label: '# of Games',
@@ -92,11 +86,11 @@ const LichessProfileComponent = () => {
               'red',
             ],
             borderColor: [
-              'black',
-              'black',
-              'black',
+              'rgb(8, 184, 8)',
+              'blue',
+              'red',
             ],
-            borderWidth: 1,
+            borderWidth: 0,
           },
         ],
     };
@@ -105,8 +99,29 @@ const LichessProfileComponent = () => {
         title:{
             text:"No. of Games",
             display: true,
+            responsive: true,
         }
     }
+
+    ///
+
+    const datum2 = {
+        labels: ['Bullet','Blitz', 'Rapid', 'Classical','UltraBullet','chess960','Antichess','CrazyHouse','RacingKings','ThreeCheck' ],
+        animation:{
+            animationScale:true
+        },
+        datasets: [
+            {
+              label: '# of Games played in each variant',
+              data: [bulletGames, blitzGames, rapidGames, classGames, ubulletGames, c960Games, antichessGames, crazyGames, racingKingGames, threecheckGames],
+              backgroundColor: ['#013248','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFBD00'],
+              borderColor: ['#013248','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFBD00'],
+              borderWidth: 0,
+            },
+          ],
+    }
+
+
 
     return(
         <div>
@@ -193,6 +208,20 @@ const LichessProfileComponent = () => {
                     <Alert variant={'dark'}>
                         <div className="doughNutChart">
                             <Doughnut data={datum} options={options}/>
+                            <section style={{padding:'5%'}}>
+                                <span id="donutText">Total Games Played</span>
+                            </section>
+                        </div>
+                    </Alert>
+                    <Alert variant={'dark'}>
+                        <div className="pieChart">
+                            <Pie data={datum2} options={options}/>
+                            <section style={{padding:'5%'}}>
+                                <span id="donutText">Total Games Played of Each Variant</span>
+                            </section>
+                        </div>
+                        <div className="doughNutChart">
+
                         </div>
                     </Alert>
                     Name : {username} <br/>
