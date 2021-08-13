@@ -1,5 +1,6 @@
 import React from 'react';
 import {  Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Link45deg } from 'react-bootstrap-icons';
 import puzzleImage from '../../assets/puzzle.png';
 
 const RatingCardComponent = (props) => {
@@ -18,7 +19,7 @@ const RatingCardComponent = (props) => {
                 <ListGroupItem><b>Score</b> : {props.score}</ListGroupItem>
             </ListGroup>
             <Card.Body>
-                <Card.Link href="https://lichess.org/page/racer">See More</Card.Link>
+                <Card.Link href="https://lichess.org/page/racer">See Here <Link45deg size={23}/></Card.Link>
             </Card.Body>
         </Card>
     )

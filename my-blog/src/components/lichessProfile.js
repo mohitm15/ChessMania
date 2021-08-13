@@ -44,6 +44,7 @@ const LichessProfileComponent = () => {
     let totalWins = JSON.stringify(data?.count?.win);
     let totalDraws = JSON.stringify(data?.count?.draw);
     let totalLoss = JSON.stringify(data?.count?.loss);
+    let userLink = JSON.stringify(data?.url);
 
     let blitzRating = JSON.stringify(data?.perfs?.blitz?.rating);
     let bulletRating = JSON.stringify(data?.perfs?.bullet?.rating);
@@ -145,7 +146,7 @@ const LichessProfileComponent = () => {
                             followers={followers} following={following} isOnline={isOnline} />
                     
                     {/* Introduction */}
-                    <IntroductionComponent fName={fName} lName={lName} totalGames={totalGames} totalDraws={totalDraws}
+                    <IntroductionComponent fName={fName} lName={lName} userLink={userLink} totalGames={totalGames} totalDraws={totalDraws}
                                 totalWins={totalWins} totalLoss={totalLoss} />                    
 
                     
@@ -183,7 +184,7 @@ const LichessProfileComponent = () => {
 
                     {/* Puzzle Stats */}
                     <PuzzleStatsComponent racerrun={racerrun} racerscore={racerscore} stormrun={stormrun} stormscore={stormscore} puzzleRating={puzzleRating} />
-                    
+
                 </Container>
             </div>
         </div>

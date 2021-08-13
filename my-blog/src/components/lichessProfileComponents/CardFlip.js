@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Button } from 'react-bootstrap';
 import ReactCardFlip from 'react-card-flip';
-
+import { Cursor } from 'react-bootstrap-icons';
 
 const CardFlipComponent = (props) => {
 
@@ -17,7 +17,7 @@ const CardFlipComponent = (props) => {
             <span style={{fontSize:'225%'}}>{props.gameName}</span><br/> <span style={{fontSize:'120%'}}>RATING</span>    
                 <br />
                 <div style={{ padding:'5%'}}>
-                    <Button variant="outline-secondary" onClick={cardFlip}>See</Button>
+                    <Button variant="outline-secondary" onClick={cardFlip}><Cursor color='white'/></Button>
                 </div>
                 
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row,Col,Alert } from 'react-bootstrap';
+import {PersonCheckFill, PeopleFill, BarChartFill} from 'react-bootstrap-icons';
 
 const TitleHeadComponent = (props) => {
     return (
@@ -13,9 +14,9 @@ const TitleHeadComponent = (props) => {
             <Col className="userName">{props.username?.slice(1,-1)}</Col>
         </Row>
         <Row className="followerRow">
-            <Col>{props.followers} <br/><b>Following</b></Col>
-            <Col>{props.following} <br/><b>Followers</b></Col>
-            <Col>{props.isOnline} <br/><b>Online : </b></Col>
+            <Col><PeopleFill size={26} color='black' /><br/><b>Following:{props.followers}</b></Col>
+            <Col><PersonCheckFill size={26} color='black' /> <br/><b>Followers:{props.following}</b></Col>
+            <Col><BarChartFill size={26} color='black' /><br/><b>Online:{props.isOnline} </b></Col>
         </Row>
     </Alert>
     );
