@@ -1,7 +1,10 @@
 import React, {useState,useEffect} from 'react';
-import { Button, Container,Row, Col, Alert } from 'react-bootstrap';
+import { Button, Container,Row, Col, Alert, Card, ListGroup, ListGroupItem,Badge} from 'react-bootstrap';
 import CardFlipComponent from './CardFlip';
 import { Doughnut,Pie } from 'react-chartjs-2';
+import puzzleImage from '../assets/puzzle.png'
+import stormImage from '../assets/storm3.png';
+import racerImage from '../assets/racer3.png';
 
 
 
@@ -29,7 +32,7 @@ const LichessProfileComponent = () => {
     let str2 = "/flat/48.png";
     let srcOfFlag = str1.concat(countryOfUSer).concat(str2);
 
-    let bioOfUser = JSON.stringify(data?.profile?.bio);
+    //let bioOfUser = JSON.stringify(data?.profile?.bio);
 
     let followers = JSON.stringify(data.nbFollowing);
     let following = JSON.stringify(data?.nbFollowers);
@@ -63,6 +66,11 @@ const LichessProfileComponent = () => {
     let racingKingGames = JSON.stringify(data?.perfs?.racingKings?.games);
     let threecheckGames = JSON.stringify(data?.perfs?.threecheck?.games);
 
+    let stormrun = JSON.stringify(data?.perfs?.storm?.runs);
+    let stormscore = JSON.stringify(data?.perfs?.storm?.score);
+    let racerrun = JSON.stringify(data?.perfs?.racer?.runs);
+    let racerscore = JSON.stringify(data?.perfs?.racer?.score);
+    let puzzleRating = JSON.stringify(data?.perfs?.puzzle?.rating);
 
     function getData(val) {
         //console.log(val.target.value);
@@ -121,17 +129,16 @@ const LichessProfileComponent = () => {
           ],
     }
 
-
-
     return(
         <div>
-            <div>
-                <input type="text" onChange={getData} placeholder="search..."/>
+            <div className='searchInput'>
+                <input style={{fontFamily:'Unkempt, cursive', padding:'3%',fontSize:'150%',textAlign:'center'}} type="text" onChange={getData} placeholder="search..."/>
             </div>       
             <br/>
-            <div>
-                <Button className="lichess-button" onClick={()=>lichessProfile(inputData)} >Get Profile</Button>
+            <div className='searchButton'>
+                <Button style={{fontSize:'80%',padding:'2%',backgroundColor:'grey'}} className="lichess-button" onClick={()=>lichessProfile(inputData)} >Get Profile</Button>
             </div>
+            
             <div className="profileContainer">
                 <Container>
                     <Alert variant={'success'}>
@@ -222,6 +229,62 @@ const LichessProfileComponent = () => {
                         </div>
                         <div className="doughNutChart">
 
+                        </div>
+                    </Alert>
+                    <Alert variant={'success'}>
+                        <Row>
+                            <Col className="fullName">Puzzle Stats</Col>
+                        </Row>
+                    </Alert>
+
+                    <Alert variant={'dark'}>
+                        <div>
+                            <Row>
+                                <Col>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img variant="top" src={puzzleImage} />
+                                    <Card.Img variant="bottom" src={racerImage} />
+                                    <Card.Body>
+                                        <Card.Title>How to Play?</Card.Title>
+                                        <Card.Text>
+                                            Each correct move earns one point. The goal is to get as many points as you can within 90 seconds. 
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <ListGroup className="list-group-flush">
+                                        <ListGroupItem><b>Run</b> : {racerrun}</ListGroupItem>
+                                        <ListGroupItem><b>Score</b> : {racerscore}</ListGroupItem>
+                                    </ListGroup>
+                                    <Card.Body>
+                                        <Card.Link href="https://lichess.org/page/racer">See More</Card.Link>
+                                    </Card.Body>
+                                    </Card>
+                                </Col>
+                                <Col>
+                                    <Card style={{ width: '18rem' }}>
+                                    <Card.Img variant="top" src={puzzleImage} />
+                                    <Card.Img variant="bottom" src={stormImage}/>
+                                    <Card.Body>
+                                        <Card.Title>How to Play?</Card.Title>
+                                        <Card.Text>
+                                            Each puzzle grants one point. The goal is to get as many points as you can before the time runs out.
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <ListGroup className="list-group-flush">
+                                        <ListGroupItem><b>Run</b> : {stormrun}</ListGroupItem>
+                                        <ListGroupItem><b>Score</b> : {stormscore}</ListGroupItem>
+                                    </ListGroup>
+                                    <Card.Body>
+                                        <Card.Link href="https://lichess.org/page/storm">See More</Card.Link>
+                                    </Card.Body>
+                                    </Card>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <div className='puzzleStreak'>
+                                    Puzzle Rating : &nbsp;
+                                    <Badge bg='info'>{puzzleRating}</Badge>
+                                </div>
+                            </Row>
                         </div>
                     </Alert>
                     Name : {username} <br/>

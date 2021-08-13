@@ -218,7 +218,7 @@ main {
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 2%;
-  border: 1px dashed brown;
+  border: 2px dashed black;
 }
 
 .titleOfUser {
@@ -291,9 +291,35 @@ main {
 }
 
 .pieChart {
-
   height: 70%;
   width: 70%;
   margin-left: 10%;
   padding: 2%;
+}
+
+/*puzzle-stats*/
+
+.puzzleStreak {
+
+  font-size: xxx-large ;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-align: center;
+  margin: auto;
+  padding: 4%;
+  margin-top: 4%;
+  border-style: groove;
+}
+
+
+/* searchimnput */
+
+.searchInput {
+  text-align: center;
+  font-size: large;
+}
+
+/* searchbutton */
+.searchButton {
+  text-align: center;
+  font-size: x-large;
 }
