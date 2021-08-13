@@ -1,10 +1,10 @@
 import React, {useState,useEffect} from 'react';
-import { Button, Container,Row, Col, Alert, Card, ListGroup, ListGroupItem,Badge} from 'react-bootstrap';
-import CardFlipComponent from './CardFlip';
+import { Button, Container,Row, Col, Alert} from 'react-bootstrap';
 import { Doughnut,Pie } from 'react-chartjs-2';
-import puzzleImage from '../assets/puzzle.png'
-import stormImage from '../assets/storm3.png';
-import racerImage from '../assets/racer3.png';
+import TitleHeadComponent from './lichessProfileComponents/titleHead';
+import IntroductionComponent from './lichessProfileComponents/introduction';
+import RatingsComponent from './lichessProfileComponents/ratings';
+import PuzzleStatsComponent from './lichessProfileComponents/puzzleStats';
 
 
 
@@ -111,8 +111,6 @@ const LichessProfileComponent = () => {
         }
     }
 
-    ///
-
     const datum2 = {
         labels: ['Bullet','Blitz', 'Rapid', 'Classical','UltraBullet','chess960','Antichess','CrazyHouse','RacingKings','ThreeCheck' ],
         animation:{
@@ -141,71 +139,22 @@ const LichessProfileComponent = () => {
             
             <div className="profileContainer">
                 <Container>
-                    <Alert variant={'success'}>
-                        <Row>
-                            <Col></Col>
-                            <Col className='titleOfUser'>{titleOfUser?.slice(1,-1)}</Col>
-                        </Row>
-                        <Row>
-                            <Col><img src={srcOfFlag} alt="" /></Col>
-                            <Col className="userName">{username?.slice(1,-1)}</Col>
-                        </Row>
-                        <Row className="followerRow">
-                            <Col>{followers} <br/><b>Following</b></Col>
-                            <Col>{following} <br/><b>Followers</b></Col>
-                            <Col>{isOnline} <br/><b>Online : </b></Col>
-                        </Row>
-                    </Alert>
-                    <Row>
-                        {/* {bioOfUser} */}
-                    </Row>
-                    <Alert variant={'secondary'}>
-                        <Row>
-                            <Col className="fullName">{fName?.slice(1,-1)}  {lName?.slice(1,-1)}</Col>
-                            <Col className="totalGame">{totalGames} : <span style={{color:'green'}}>{totalWins} </span> / <span style={{color:'blue'}}>{totalDraws} </span> / <span style={{color:'red'}}>{totalLoss}</span></Col>
-                        </Row>
-                    </Alert>
-                    <Alert variant={'success'}>
-                        <Row>
-                            <Col className="fullName">Ratings</Col>
-                            <Col className="totalGame"> <span > {bulletRating} </span> | <span>{blitzRating} </span> | <span>{rapidRating}</span></Col>
-                        </Row>
-                    </Alert>
-                    <Alert variant={'dark'}>
-                        <div className="d-flex bd-highlight example-parent">
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Bullet" gameRating={bulletRating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Blitz" gameRating={blitzRating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Rapid" gameRating={rapidRating} />
-                            </div>
-                        </div>
-                        <div className="d-flex bd-highlight example-parent">
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Classical" gameRating={classicalRating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Chess960" gameRating={chess960Rating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="AntiChess" gameRating={antichessRating} />
-                            </div>
-                        </div>
-                        <div className="d-flex bd-highlight example-parent">
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="3Check" gameRating={checkRating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Atomic" gameRating={atomicRating} />
-                            </div>
-                            <div className="p-2 flex-fill bd-highlight col-example">
-                                <CardFlipComponent  gameName="Horde" gameRating={hordeRating} />
-                            </div>
-                        </div>
-                    </Alert>
+
+                    {/* TitleHead */}
+                    <TitleHeadComponent titleOfUser={titleOfUser} srcOfFlag={srcOfFlag} username={username}
+                            followers={followers} following={following} isOnline={isOnline} />
+                    
+                    {/* Introduction */}
+                    <IntroductionComponent fName={fName} lName={lName} totalGames={totalGames} totalDraws={totalDraws}
+                                totalWins={totalWins} totalLoss={totalLoss} />                    
+
+                    
+                    {/* Ratings */}
+                    <RatingsComponent bulletRating={bulletRating} blitzRating={blitzRating} rapidRating={rapidRating} 
+                            classicalRating={classicalRating} chess960Rating={chess960Rating} antichessRating={antichessRating} 
+                            checkRating={checkRating} atomicRating={atomicRating} hordeRating={hordeRating}  />
+
+                    {/* Charts */}
                     <Alert variant={'success'}>
                         <Row>
                             <Col className="fullName">Performance</Col>
@@ -231,66 +180,10 @@ const LichessProfileComponent = () => {
 
                         </div>
                     </Alert>
-                    <Alert variant={'success'}>
-                        <Row>
-                            <Col className="fullName">Puzzle Stats</Col>
-                        </Row>
-                    </Alert>
 
-                    <Alert variant={'dark'}>
-                        <div>
-                            <Row>
-                                <Col>
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={puzzleImage} />
-                                    <Card.Img variant="bottom" src={racerImage} />
-                                    <Card.Body>
-                                        <Card.Title>How to Play?</Card.Title>
-                                        <Card.Text>
-                                            Each correct move earns one point. The goal is to get as many points as you can within 90 seconds. 
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <ListGroup className="list-group-flush">
-                                        <ListGroupItem><b>Run</b> : {racerrun}</ListGroupItem>
-                                        <ListGroupItem><b>Score</b> : {racerscore}</ListGroupItem>
-                                    </ListGroup>
-                                    <Card.Body>
-                                        <Card.Link href="https://lichess.org/page/racer">See More</Card.Link>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                                <Col>
-                                    <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={puzzleImage} />
-                                    <Card.Img variant="bottom" src={stormImage}/>
-                                    <Card.Body>
-                                        <Card.Title>How to Play?</Card.Title>
-                                        <Card.Text>
-                                            Each puzzle grants one point. The goal is to get as many points as you can before the time runs out.
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <ListGroup className="list-group-flush">
-                                        <ListGroupItem><b>Run</b> : {stormrun}</ListGroupItem>
-                                        <ListGroupItem><b>Score</b> : {stormscore}</ListGroupItem>
-                                    </ListGroup>
-                                    <Card.Body>
-                                        <Card.Link href="https://lichess.org/page/storm">See More</Card.Link>
-                                    </Card.Body>
-                                    </Card>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <div className='puzzleStreak'>
-                                    Puzzle Rating : &nbsp;
-                                    <Badge bg='info'>{puzzleRating}</Badge>
-                                </div>
-                            </Row>
-                        </div>
-                    </Alert>
-                    Name : {username} <br/>
-                    Blitz rating : {blitzRating} <br/>
-                    Bullet rating : {bulletRating} <br/>
-                    Rapid rating : {rapidRating} <br/>
+                    {/* Puzzle Stats */}
+                    <PuzzleStatsComponent racerrun={racerrun} racerscore={racerscore} stormrun={stormrun} stormscore={stormscore} puzzleRating={puzzleRating} />
+                    
                 </Container>
             </div>
         </div>
