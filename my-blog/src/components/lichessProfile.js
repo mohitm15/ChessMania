@@ -13,18 +13,25 @@ const LichessProfileComponent = () => {
     const [data,setData] = useState('');
     const [inputData, setInputData] = useState(null);
     const [print,setPrint] = useState(false);
-    
 
 
     async function lichessProfile(username) {
-        await fetch(`https://lichess.org/api/user/${username}`)
-        .then((res)=>res.json())
-        .then((json) => setData(json));
+        try{
+            await fetch(`https://lichess.org/api/user/${username}`)
+            .then((res)=>res.json())
+            .then((json) => setData(json));
+             setPrint(true);
+        }
+        catch(e){
+            console.log(e);
+        }
     }
 
     useEffect(()=> lichessProfile(),[]);
 
     let username =  JSON.stringify(data.username);
+    //console.log("User ka naam : ",username);
+
     let titleOfUser = JSON.stringify(data.title);
     
     let countryOfUSer = JSON.stringify(data?.profile?.country)?.slice(1,-1);
@@ -52,7 +59,7 @@ const LichessProfileComponent = () => {
     let classicalRating = JSON.stringify(data?.perfs?.classical?.rating);
     let chess960Rating = JSON.stringify(data?.perfs?.chess960?.rating);
     let antichessRating = JSON.stringify(data?.perfs?.antichess?.rating);
-    let checkRating = JSON.stringify(data?.perfs?.threecheck?.rating);
+    let checkRating = JSON.stringify(data?.perfs?.threeCheck?.rating);
     let atomicRating = JSON.stringify(data?.perfs?.atomic?.rating);
     let hordeRating = JSON.stringify(data?.perfs?.horde?.rating);
 
@@ -60,12 +67,12 @@ const LichessProfileComponent = () => {
     let blitzGames = JSON.stringify(data?.perfs?.blitz?.games);
     let rapidGames = JSON.stringify(data?.perfs?.rapid?.games);
     let classGames = JSON.stringify(data?.perfs?.classical?.games);
-    let ubulletGames = JSON.stringify(data?.perfs?.ultrabullet?.games);
+    let ubulletGames = JSON.stringify(data?.perfs?.ultraBullet?.games);
     let c960Games = JSON.stringify(data?.perfs?.chess960?.games);
     let antichessGames = JSON.stringify(data?.perfs?.antichess?.games);
     let crazyGames = JSON.stringify(data?.perfs?.crazyhouse?.games);
-    let racingKingGames = JSON.stringify(data?.perfs?.racingKings?.games);
-    let threecheckGames = JSON.stringify(data?.perfs?.threecheck?.games);
+    let racingKingGames = JSON.stringify(data?.perfs?.kingOfTheHill?.games);
+    let threecheckGames = JSON.stringify(data?.perfs?.threeCheck?.games);
 
     let stormrun = JSON.stringify(data?.perfs?.storm?.runs);
     let stormscore = JSON.stringify(data?.perfs?.storm?.score);
@@ -121,23 +128,25 @@ const LichessProfileComponent = () => {
             {
               label: '# of Games played in each variant',
               data: [bulletGames, blitzGames, rapidGames, classGames, ubulletGames, c960Games, antichessGames, crazyGames, racingKingGames, threecheckGames],
-              backgroundColor: ['#013248','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFBD00'],
-              borderColor: ['#013248','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFBD00'],
+              backgroundColor: ['#011F2C','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFD65F'],
+              borderColor: ['#011F2C','#003f5c','#2f4b7c','#665191','#a05195','#d45087','#f95d6a','#ff7c43','#ffa600','#FFD65F'],
               borderWidth: 0,
             },
           ],
     }
 
-    return(
-        <div>
-            <div className='searchInput'>
-                <input style={{fontFamily:'Unkempt, cursive', padding:'3%',fontSize:'150%',textAlign:'center'}} type="text" onChange={getData} placeholder="search..."/>
-            </div>       
-            <br/>
-            <div className='searchButton'>
-                <Button style={{fontSize:'80%',padding:'2%',backgroundColor:'grey'}} className="lichess-button" onClick={()=>lichessProfile(inputData)} >Get Profile</Button>
-            </div>
-            
+    let showDisplay;
+    if(!print ) {
+        showDisplay = (
+            <Alert variant={'light'}>
+                <div className='errorText'>
+                    <h2>Type Full Name <br/> OR <br/> User Does Not Exists !</h2>
+                </div>
+            </Alert>
+        )
+    }
+    else {
+        showDisplay = (
             <div className="profileContainer">
                 <Container>
 
@@ -187,6 +196,23 @@ const LichessProfileComponent = () => {
 
                 </Container>
             </div>
+        )
+
+    };
+
+
+    return(
+        <div>
+            <div className='searchInput'>
+                <input style={{fontFamily:'Unkempt, cursive', padding:'3%',fontSize:'150%',textAlign:'center'}} type="text" onChange={getData} placeholder="search..."/>
+            </div>       
+            <br/>
+            <div className='searchButton'>
+                <Button style={{fontSize:'80%',padding:'2%',backgroundColor:'grey'}} className="lichess-button" onClick={()=>lichessProfile(inputData)} >Get Profile</Button>
+            </div>
+            
+            {showDisplay};
+            {/* Here I am displaying the component */}
         </div>
     )
 };

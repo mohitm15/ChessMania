@@ -323,3 +323,13 @@ main {
   text-align: center;
   font-size: x-large;
 }
+
+/* errorSection */
+.errorText {
+  text-align: center;
+  padding: 5%;
+  font-family: 'Love Ya Like A Sister', cursive;
+  text-transform: capitalize;
+  color: rgb(25, 15, 27);
+  border: 2px black dashed;
+}
