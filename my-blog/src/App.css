@@ -333,3 +333,14 @@ main {
   color: rgb(25, 15, 27);
   border: 2px black dashed;
 }
+
+/* Gallery Image */
+.carouselContainer {
+  padding: 4%;
+  font-weight: bolder;
+}
+
+.w-100 {
+  width: 100% !important;
+  height: 40vh;
+}

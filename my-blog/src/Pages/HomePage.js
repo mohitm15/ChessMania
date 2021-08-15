@@ -1,8 +1,10 @@
 import React from 'react';
 import ChessRankings from '../components/ChessRankings';
+import GalleryComponent from '../components/Gallery';
 import '../App.css'
 
 import ChessMeme from '../assets/chessmeme.jpg';
+
 
 const HomePage = () => (
     <>
@@ -30,6 +32,10 @@ const HomePage = () => (
             <h1 style={{padding:"3%"}}>Top 10 Current Chess Players</h1>
             <h4 style={{padding:"0% 3% 3% 3%"}}>Chess Rankings</h4>
             <ChessRankings />
+        </div>
+        <div>
+            <h1>Know The Players</h1>
+            <GalleryComponent />
         </div>
         
     </>
