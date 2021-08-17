@@ -12,18 +12,21 @@ const HomePage = () => (
         <br />
         <hr />
         <p className="about-paragraph">
-            ChessMania is a website which gives latest update for the chess. Chess is 
-            one of the most tactical game played across the globe. Here our main focus is 
-            to present cthe various chess articles. However this website also covers the basics learning 
-            objectives of chess as well as current chess rankings at the international level.
+            ChessMania is a website that gives the latest update for chess. Chess is one of the most
+            tactical games played across the globe. Here our main focus is to present the various chess
+            articles. However, this website also covers the basics of learning objectives of chess as
+            well as current chess rankings at the international level.
         </p>
         <p className="about-paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Subsequently, we also cover the common FAQs related to chess, the notation, and the type of game
+            played in chess. You also get a glimpse of various prestigious tournaments of chess played across
+            the globe within a chess calendar and about the esteemed players taking part in it.
+        </p>
+        <p>
+            The last section takes you through the profile of any Lichess Player that loves chess. The profile section 
+            displays the basic introduction, including name, nationality, followers, and total games played. Later it shows
+            the player's rating in each variant and the percentage of wins and losses. It also shows the chess variant 
+            played by that user most and which are least. Finally, it shows the statistics of the player in the puzzle section.
         </p>
         <div className="chess-setup">
             <img className="chess-wallpaper" src={ChessMeme} alt="Chess Meme"/>
