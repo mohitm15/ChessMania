@@ -40,7 +40,6 @@ const HomePage = () => (
             <h1>Know The Players</h1>
             <GalleryComponent />
         </div>
-        
     </>
 );
 

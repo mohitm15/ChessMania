@@ -8,7 +8,6 @@ const ArticlesListPage = () => (
         <br />
         <hr />
         <ArticleList articlesprops={articleContent}/>
-        
     </>
 );
 
