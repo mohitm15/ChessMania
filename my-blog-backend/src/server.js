@@ -6,12 +6,18 @@ import { MongoClient } from 'mongodb';
 const app = express();
 
 
+function maxi(a,b) {
+    if(a>=b) return a;
+    else return b;
+}
+
+
 app.use(bodyParser.json());
 
 const withDB = async (operations,res) => {
     try {
         
-        const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+        const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true},{useUnifiedTopology:true});
         const db = client.db('my-blog');
     
         await operations(db);
@@ -39,9 +45,8 @@ app.get('/api/articles/:name', async (req,res)=> {
 
 
 
-//incrementing the upvote of the articlesname given by ':name' variable in URL
-//each time a post request is made, upvote inc by 1
-
+//incrementing the upvote of the articlesname given by ':name' variable in URL accessed by req.params  
+//Each time a post request is made, upvote inc by 1
 app.post('/api/articles/:name/upvote', async (req,res)=> {
 
     withDB(async (db) => {
@@ -63,6 +68,31 @@ app.post('/api/articles/:name/upvote', async (req,res)=> {
     },res);
 
 });
+
+app.post('/api/articles/:name/downvote',async (req,res)=>{
+
+    withDB(async (db) => {
+
+        const articleName = req.params.name;
+        const articleInfo = await db.collection('articles').findOne({name:articleName});
+
+        await db.collection('articles').updateOne({name:articleName}, {
+            '$set' : {
+                upvotes:articleInfo.upvotes - 1,
+            },
+        });
+
+        articleInfo.upvotes = maxi(0, articleInfo.upvotes);
+
+        const updatedArticleInfo = await db.collection('articles').findOne({name:articleName});
+
+        
+        res.status(200).json(updatedArticleInfo);
+
+    },res);
+
+});
+
 
 app.post('/api/articles/:name/add-comment', (req, res) => {
     
