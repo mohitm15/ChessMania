@@ -55,7 +55,7 @@ class ChessRankings extends Component {
             Currently in the open section, <strong>GM Magnus Carlsen</strong> from Norway is at the peak with 2847 elo points.
           </p>
           <div>
-          <a href="https://2700chess.com" target="_blank"><img border="2" src="https://2700chess.com/files/topten.png" 
+          <a href="https://2700chess.com" target="#"><img border="2" src="https://2700chess.com/files/topten.png" 
           alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list"/></a>
           </div>
         </div>
@@ -72,7 +72,7 @@ class ChessRankings extends Component {
             Currently in the women's section,<strong> GM Hou Yifan </strong> from China is at the peak with 2658 elo points.
           </p>
           <div>
-          <a href="https://2700chess.com/women" target="_blank"><img border="0" src="https://2700chess.com/files/topten_women.png" 
+          <a href="https://2700chess.com/women" target="#"><img border="0" src="https://2700chess.com/files/topten_women.png" 
           alt= "2700chess.com for more details and full list" title="2700chess.com for more details and full list"/></a>
           </div>
         </div>

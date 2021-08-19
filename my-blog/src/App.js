@@ -12,12 +12,17 @@ import Footer from './components/Footer';
 import TimeZoneComponent from './components/Timezone';
 import './App.css';
 import LichessProfilePage from './Pages/LichessProfilePage';
+import Alert from './components/Alert';
 
 function App() {
+
+
+
   return (
     <Router>
         <div className="App">
           <Navbar />
+          <Alert type="success" message="welcome to chessmania"/>
           <div id="page-body">
             <Switch>
             <Route path="/" component={HomePage} exact/>
