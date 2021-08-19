@@ -20,6 +20,39 @@ const AddCommentForm = ({articleName, setArticleInfo}) => {
         setCommentText('');
     }
 
+    const clearText = () => {
+        setUsername('');
+        setCommentText('');
+    }
+
+    // const deleteProductFromCart = async (user, productId) => {
+
+    //     //checking if user has Cart 
+    //     Cart.findOne({ email: user.email }, async (err, cart) => {
+    //       if (err || !cart) {
+    //         throw new ApiError(httpStatus.BAD_REQUEST, "User does not have a cart");
+    //       }
+    //       let productIndexInCart = -1;
+    //       cart.cartItems.forEach((item, index) => {
+    //         (item.product && item.product._id) == productId
+    //           ? (productIndexInCart = index)
+    //           : null;
+    //       });
+    //       if (productIndexInCart == -1) {
+    //         throw new ApiError(httpStatus.BAD_REQUEST, "Product not in cart");
+    //       } else {
+    //         let updatedCart = cart.cartItems.filter(
+    //           (item) => item.product._id != productId
+    //         );
+    //         cart.cartItems = updatedCart;
+    //         await cart.save();
+    //       }
+    //     });
+    
+    // }
+    
+    
+
     return (
         <div id="add-comment-form">
             <h3>Add a Comment Here...</h3>
@@ -32,7 +65,14 @@ const AddCommentForm = ({articleName, setArticleInfo}) => {
                 Comment:
                 <textarea rows="4" col="50" value={commentText} onChange={(event)=>setCommentText(event.target.value)}/>
             </label>
-            <Button variant="info" onClick={()=>addComment()}>Add Comment</Button>
+            <Button variant="primary" onClick={()=>addComment()}>Add Comment</Button>
+            <Button variant="primary" className="mx-3" onClick={()=>clearText()} >Clear</Button>
+            <h3 className="my-4">Preview</h3>
+            <div className="comment" style={{border:'1px black solid'}}>
+                <h4>{username}</h4>
+                <p>{commentText}</p>
+            </div>
+            
         </div>
     )
     

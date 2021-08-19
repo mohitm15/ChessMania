@@ -85,7 +85,7 @@ nav a:hover {
   margin-top: 5%;
   border: 2px dashed black;
   padding: 15px;
-  background-color: skyblue;
+  background-color: rgb(214, 237, 247);
 }
 
 #add-comment-form h3 {

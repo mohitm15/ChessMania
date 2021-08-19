@@ -21,7 +21,7 @@ const UpvoteSection = ({articleName , upvotes, setArticleInfo}) => {
     }
     return (
     <div id="upvotes-section">
-        <Button name="Add vote" onClick={()=> upvoteArticle()} variant="outline-success"><HandThumbsUp size={24}  /></Button>
+        <Button name="Add vote" onClick={()=> upvoteArticle()} variant="outline-success"><HandThumbsUp size={24} onClick={()=>upvoteArticle}  /></Button>
         <Button name="Remove vote" onClick={()=> downvoteArticle()} variant="outline-danger"><HandThumbsDown size={24}  /></Button>
         <p>{upvotes} Likes</p>
     </div>
