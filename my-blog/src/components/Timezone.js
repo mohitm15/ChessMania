@@ -39,7 +39,7 @@
 
         let mystr = JSON.stringify(data.datetime);
 
-        console.log("city typed  =  "+city);
+        //console.log("city typed  =  "+city);
         
         const cityToCodeMatcher = (city) => {
             let code;

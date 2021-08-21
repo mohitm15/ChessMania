@@ -72,7 +72,6 @@ const AddCommentForm = ({articleName, setArticleInfo}) => {
                 <h4>{username}</h4>
                 <p>{commentText}</p>
             </div>
-            
         </div>
     )
     

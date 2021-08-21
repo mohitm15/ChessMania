@@ -18,7 +18,7 @@ const ArticlePage = ({match}) => {
 
     //fetching from data
     useEffect(()=>{
-        //setArticleInfo({upvotes:Math.ceil(Math.random()*10)});
+        //fecting data from server
         const fetchData = async () => {
             const result = await fetch(`/api/articles/${name}`);
             const body = await result.json();
