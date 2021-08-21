@@ -39,7 +39,9 @@ const LichessProfileComponent = () => {
     let str2 = "/flat/48.png";
     let srcOfFlag = str1.concat(countryOfUSer).concat(str2);
 
-    //let bioOfUser = JSON.stringify(data?.profile?.bio);
+    let bioOfUser = JSON.stringify(data?.profile?.bio);
+    let seenAt = Date(JSON.stringify(data?.seenAt));
+
 
     let followers = JSON.stringify(data.nbFollowing);
     let following = JSON.stringify(data?.nbFollowers);
@@ -151,7 +153,7 @@ const LichessProfileComponent = () => {
                 <Container>
 
                     {/* TitleHead */}
-                    <TitleHeadComponent titleOfUser={titleOfUser} srcOfFlag={srcOfFlag} username={username}
+                    <TitleHeadComponent titleOfUser={titleOfUser} srcOfFlag={srcOfFlag} bioOfUser={bioOfUser} seenAt={seenAt} username={username}
                             followers={followers} following={following} isOnline={isOnline} />
                     
                     {/* Introduction */}

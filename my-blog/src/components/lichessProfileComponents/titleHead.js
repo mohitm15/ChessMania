@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row,Col,Alert } from 'react-bootstrap';
 import {PersonCheckFill, PeopleFill, BarChartFill, CircleFill} from 'react-bootstrap-icons';
+import ToastStatusComponent from './toastStatus';
 
 const TitleHeadComponent = (props) => {
 
@@ -18,7 +19,10 @@ const TitleHeadComponent = (props) => {
             <Col className='titleOfUser'>{props.titleOfUser?.slice(1,-1)}</Col>
         </Row>
         <Row>
-            <Col><img src={props.srcOfFlag} alt="" /></Col>
+            <Col>
+                <img src={props.srcOfFlag} alt="" />
+                <ToastStatusComponent bioOfUser={props.bioOfUser} seenAt={props.seenAt} />
+            </Col>
             <Col className="userName">{props.username?.slice(1,-1)}</Col>
         </Row>
         <Row className="followerRow">
