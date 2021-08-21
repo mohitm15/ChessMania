@@ -44,7 +44,6 @@ app.get('/api/articles/:name', async (req,res)=> {
 })
 
 
-
 //incrementing the upvote of the articlesname given by ':name' variable in URL accessed by req.params  
 //Each time a post request is made, upvote inc by 1
 app.post('/api/articles/:name/upvote', async (req,res)=> {
@@ -119,14 +118,33 @@ app.post('/api/articles/:name/add-comment', (req, res) => {
 
 // app.put('/api/articles/:name/update-comment', (req,res)=> {
 
-//     const {username, updateText} = req.body;
-//     const articleName = req.query.name;
+//     const {updateText} = req.body;
+//     const articleName = req.params.name;
 
 //     withDB(async (db) => {
 
-//         co
+//         const articleInfo = await db.collection('articles').findOne({name:articleName});
+
+//         await db.collection('articles').updateOne({name:username}, {
+//             '$set' : {
+//               
+//             }
+//         })
 //     })
 // })
 
+app.delete('/api/articles/:name/delete-comment?index={id}',(req,res)=>{
+    // const articleName = req.params.name;
+    // const commentIndex = req.query.index;
+
+    // withDB(async(db) => {
+
+    //     const articleInfo = await db.collection('articles').findOne({name:articleName});
+    //     //yaha per index chahiye per kaise milega pta nhi?
+
+    //     //articleInfo.comments = gives artcle commet
+
+    // })
+})
 
 app.listen(8000,()=>console.log("Listening to the port 8000"));
