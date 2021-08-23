@@ -30,8 +30,6 @@ const LichessProfileComponent = () => {
     useEffect(()=> lichessProfile(),[]);
 
     let username =  JSON.stringify(data.username);
-    //console.log("User ka naam : ",username);
-
     let titleOfUser = JSON.stringify(data.title);
     
     let countryOfUSer = JSON.stringify(data?.profile?.country)?.slice(1,-1);
@@ -39,47 +37,38 @@ const LichessProfileComponent = () => {
     let str2 = "/flat/48.png";
     let srcOfFlag = str1.concat(countryOfUSer).concat(str2);
 
-    let bioOfUser = JSON.stringify(data?.profile?.bio);
-    let seenAt = Date(JSON.stringify(data?.seenAt));
 
-
+    let seenAt = Date(JSON.stringify(data?.createdAt));
     let followers = JSON.stringify(data.nbFollowing);
     let following = JSON.stringify(data?.nbFollowers);
     let isOnline = JSON.stringify(data?.online);
 
-    let fName = JSON.stringify(data?.profile?.firstName);
-    let lName = JSON.stringify(data?.profile?.lastName);
-    let totalGames = JSON.stringify(data?.count?.all);
-    let totalWins = JSON.stringify(data?.count?.win);
-    let totalDraws = JSON.stringify(data?.count?.draw);
-    let totalLoss = JSON.stringify(data?.count?.loss);
+    let { firstName: fName, lastName: lName, bio:bioOfUser } = data?.profile || {};
+
+    let { all:totalGames, win:totalWins, draw:totalDraws, loss:totalLoss} = data?.count || {};
+
     let userLink = JSON.stringify(data?.url);
 
-    let blitzRating = JSON.stringify(data?.perfs?.blitz?.rating);
-    let bulletRating = JSON.stringify(data?.perfs?.bullet?.rating);
-    let rapidRating = JSON.stringify(data?.perfs?.rapid?.rating);
-    let classicalRating = JSON.stringify(data?.perfs?.classical?.rating);
-    let chess960Rating = JSON.stringify(data?.perfs?.chess960?.rating);
-    let antichessRating = JSON.stringify(data?.perfs?.antichess?.rating);
-    let checkRating = JSON.stringify(data?.perfs?.threeCheck?.rating);
+    let {bullet,blitz, rapid, classical, chess960, antichess, threeCheck, storm, racer} = data?.perfs || {}
+
+    let {rating:bulletRating, games:bulletGames } = bullet || {}
+    let {rating:blitzRating, games:blitzGames } = blitz || {}
+    let {rating:rapidRating, games:rapidGames} = rapid || {}
+    let {rating:classicalRating, games:classGames} = classical || {} 
+    let {rating:chess960Rating, games:c960Games} = chess960 || {} 
+    let {rating:antichessRating, games:antichessGames} = antichess || {} 
+    let {rating:checkRating, games:threecheckGames} = threeCheck || {} 
+
     let atomicRating = JSON.stringify(data?.perfs?.atomic?.rating);
     let hordeRating = JSON.stringify(data?.perfs?.horde?.rating);
+    console.log("Horde = "+ hordeRating)
 
-    let bulletGames = JSON.stringify(data?.perfs?.bullet?.games);
-    let blitzGames = JSON.stringify(data?.perfs?.blitz?.games);
-    let rapidGames = JSON.stringify(data?.perfs?.rapid?.games);
-    let classGames = JSON.stringify(data?.perfs?.classical?.games);
     let ubulletGames = JSON.stringify(data?.perfs?.ultraBullet?.games);
-    let c960Games = JSON.stringify(data?.perfs?.chess960?.games);
-    let antichessGames = JSON.stringify(data?.perfs?.antichess?.games);
     let crazyGames = JSON.stringify(data?.perfs?.crazyhouse?.games);
     let racingKingGames = JSON.stringify(data?.perfs?.kingOfTheHill?.games);
-    let threecheckGames = JSON.stringify(data?.perfs?.threeCheck?.games);
 
-    let stormrun = JSON.stringify(data?.perfs?.storm?.runs);
-    let stormscore = JSON.stringify(data?.perfs?.storm?.score);
-    let racerrun = JSON.stringify(data?.perfs?.racer?.runs);
-    let racerscore = JSON.stringify(data?.perfs?.racer?.score);
+    let { runs:stormrun, score:stormscore } = storm || {}
+    let { runs:racerrun, score:racerscore } = racer || {}
     let puzzleRating = JSON.stringify(data?.perfs?.puzzle?.rating);
 
     function getData(val) {

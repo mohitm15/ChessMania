@@ -7,7 +7,7 @@ const IntroductionComponent = (props) => {
     return (
         <Alert variant={'secondary'}>
         <Row>
-            <Col className="fullName">{props.fName?.slice(1,-1)}  {props.lName?.slice(1,-1)} <Link45deg size={24} color='blue' href={props.userLink} /> </Col>
+            <Col className="fullName">{props.fName}  {props.lName} <Link45deg size={24} color='blue' href={props.userLink} /> </Col>
             <Col className="totalGame">{props.totalGames} : <span style={{color:'green'}}>{props.totalWins} </span> / <span style={{color:'blue'}}>{props.totalDraws} </span> / <span style={{color:'red'}}>{props.totalLoss}</span></Col>
         </Row>
     </Alert>

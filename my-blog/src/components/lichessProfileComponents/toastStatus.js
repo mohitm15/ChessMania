@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Toast, Button } from 'react-bootstrap';
-import {CircleSquare, Check2All, CheckAll} from 'react-bootstrap-icons';
+import {CircleSquare, Check2All} from 'react-bootstrap-icons';
 
 const ToastStatusComponent = (props) => {
 
