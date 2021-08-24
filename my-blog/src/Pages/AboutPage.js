@@ -1,10 +1,11 @@
 import React from 'react';
 
-import WorldMapSection from '../components/WorldMapSection';
+import WorldMapSection from '../components/aboutComponents/WorldMapSection';
 import ChessSetup from '../assets/chees.png';
 import ChessMoves from '../assets/chess-moves.png';
 import Chess from '../assets/chess.jpg';
 import '../App.css';
+import PieceNotation from '../components/aboutComponents/pieceNotation';
 
 const AboutPage = () => (
     <>
@@ -48,6 +49,9 @@ const AboutPage = () => (
                     <img className="chess-moves" src={ChessMoves} alt="Chess Moves"/>
                 </div>
             </p>
+        </div>
+        <div className='about-paragraph'>
+            <PieceNotation />
         </div>
         <h3>Popularity of Chess</h3>
         <div className="about-paragraph">

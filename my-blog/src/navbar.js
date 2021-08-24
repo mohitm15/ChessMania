@@ -7,7 +7,7 @@ const Navbar =() => {
     
     return (
         <>
-        <nav variants="pills">
+        <nav variants="pills" style={{borderBottom: '4px solid black'}}>
             <ul>
                 <li>
                     <Link to="/">Home</Link>
