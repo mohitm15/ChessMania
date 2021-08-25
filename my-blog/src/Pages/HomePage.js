@@ -1,9 +1,9 @@
 import React from 'react';
 import ChessRankings from '../components/ChessRankings';
-import GalleryComponent from '../components/Gallery';
 import '../App.css'
 
 import ChessMeme from '../assets/chessmeme.jpg';
+import Carousel from '../components/newGallery';
 
 
 const HomePage = () => (
@@ -38,7 +38,7 @@ const HomePage = () => (
         </div>
         <div>
             <h1>Know The Players</h1>
-            <GalleryComponent />
+            <Carousel />
         </div>
     </>
 );

@@ -1,5 +1,7 @@
 import React from 'react';
 import FAQdata from '../components/FAQData';
+import GalleryComponent from '../components/Gallery';
+
 
 const FAQPage = () => (
         
@@ -21,6 +23,9 @@ const FAQPage = () => (
                         ))}
                     </>
                 </section>
+            </div>
+            <div>
+                <GalleryComponent />
             </div>
         </>
 );
