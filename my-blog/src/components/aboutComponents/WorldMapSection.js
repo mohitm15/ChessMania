@@ -6,7 +6,7 @@ const WorldMapSection = () => {
   const data =
     [
       { country: "cn", value: 48   }, // china
-      { country: "in", value: 64 }, // india
+      { country: "in", value: 70 }, // india
       { country: "us", value: 101 },  // united states
       { country: "id", value: 6 },  // indonesia
       { country: "pk", value: 0 },  // pakistan

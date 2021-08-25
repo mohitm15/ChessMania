@@ -6,15 +6,16 @@ import rookPath from '../../assets/rook.png';
 import knightPath from '../../assets/knight.png';
 import bishopPath from '../../assets/bishop.png';
 import pawnPath from '../../assets/pawn.png';
+import ChessMoveNotation from './chessMoveNotation';
 
 const PieceNotation = () => {
 
-    const [symbol,setSymbol] = useState({name:'King',notation:'K',value:'+100.0',imgpath:kingPath});
+    const [symbol,setSymbol] = useState({name:' King ',notation:'K',value:'+100',imgpath:kingPath});
 
     const piece = [
-        {name:'King',notation:'K',value:'+100.0',imgpath:kingPath },
+        {name:' King ',notation:'K',value:'+100',imgpath:kingPath },
         {name:'Queen',notation:'Q',value:'+9.0',imgpath:queenPath },
-        {name:'Rooks',notation:'R',value:'+5.0',imgpath:rookPath },
+        {name:' Rook ',notation:'R',value:'+5.0',imgpath:rookPath },
         {name:'Knight',notation:'N', value:'+3.0',imgpath:knightPath },
         {name:'Bishop',notation:'B', value:'+3.0',imgpath:bishopPath },
         {name:'Pawn',notation:'a', value:'+1.0',imgpath:pawnPath },
@@ -62,6 +63,7 @@ const PieceNotation = () => {
                     <Col>Value</Col>
                 </Row>
             </div>
+            < ChessMoveNotation />
             
         </div>
 

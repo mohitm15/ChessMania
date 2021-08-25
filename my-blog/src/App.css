@@ -155,6 +155,14 @@ nav a:hover {
   overflow: hidden;
 }
 
+#blunder {
+  /* style={{fontWeight:'bold', color:'white', backgroundColor:'red',borderRadius:'20%', padding:'2%'}} */
+  background-color: red;
+  border-radius: 20%;
+  padding: 5%;
+  font-weight: bold;
+  color: white;
+}
 /* Homepage */
 
 main {

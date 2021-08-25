@@ -12,7 +12,7 @@ const AboutPage = () => (
         <h1>About Chess</h1>
         <br />
         <hr />
-        <h3>Introduction</h3>
+        <h3 style={{fontFamily:'Special Elite'}} className='my-3'>Introduction</h3>
         <div className="about-paragraph">
             <p>
                 Chess is an abstract strategy game and involves no hidden information. It is played on a 
@@ -27,7 +27,7 @@ const AboutPage = () => (
                 <img className="chess-wallpaper" src={Chess} alt="Chess "/>
             </div>
         </div>
-        <h3>Board Setup</h3>
+        <h3 style={{fontFamily:'Special Elite'}} className='my-3'>Board Setup</h3>
 
         <div className="about-paragraph">
             <p>
@@ -40,7 +40,7 @@ const AboutPage = () => (
                 </div>
             </p>
         </div>
-        <h3>Movement of pieces</h3>
+        <h3 style={{fontFamily:'Special Elite'}} className='my-3'>Movement of pieces</h3>
         <div className="about-paragraph">
             <p>
                 Each piece has its own way of moving. In the diagrams, the dots mark the squares to which the piece can move if
@@ -53,7 +53,7 @@ const AboutPage = () => (
         <div className='about-paragraph'>
             <PieceNotation />
         </div>
-        <h3>Popularity of Chess</h3>
+        <h3 style={{fontFamily:'Special Elite'}} className='my-3'>Popularity of Chess</h3>
         <div className="about-paragraph">
             <p>
                 Chess is very popular sport across the globe. The highest title a player can achive in chess is a title of <em>GrandMaster</em>.
