@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import FAQdata from '../components/FAQData';
 import GalleryComponent from '../components/Gallery';
 
 
-const FAQPage = () => (
+const FAQPage = () => {
+    
+
+    useEffect(()=> {
+        document.title = 'ChessMania - FAQ';
+    },[]);
+
+    return(
         
         <>
             <div>
@@ -28,6 +35,6 @@ const FAQPage = () => (
                 <GalleryComponent />
             </div>
         </>
-);
+)};
 
 export default FAQPage;

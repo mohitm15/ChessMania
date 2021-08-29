@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import LichessProfileComponent from '../components/lichessProfile';
 
 
 const LichessProfilePage = () => {
+
+
+    useEffect(()=> {
+        document.title = 'ChessMania - LiPRO';
+    },[]);
 
     return(
         <>

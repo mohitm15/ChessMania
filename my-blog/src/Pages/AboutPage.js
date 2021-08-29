@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import WorldMapSection from '../components/aboutComponents/WorldMapSection';
 import ChessSetup from '../assets/chees.png';
@@ -7,7 +7,13 @@ import Chess from '../assets/chess.jpg';
 import '../App.css';
 import PieceNotation from '../components/aboutComponents/pieceNotation';
 
-const AboutPage = () => (
+const AboutPage = () => {
+
+    useEffect(()=> {
+        document.title = 'ChessMania - About';
+    },[]);
+
+    return(
     <>
         <h1>About Chess</h1>
         <br />
@@ -62,6 +68,6 @@ const AboutPage = () => (
             <WorldMapSection />
         </div>
     </>
-);
+)};
 
 export default AboutPage;

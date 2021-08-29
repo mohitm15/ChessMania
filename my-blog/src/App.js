@@ -16,8 +16,6 @@ import Alert from './components/Alert';
 
 function App() {
 
-
-
   return (
     <Router>
         <div className="App">
