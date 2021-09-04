@@ -11,6 +11,8 @@ const LichessProfileComponent = () => {
   const [inputData, setInputData] = useState(null);
   const [print, setPrint] = useState(false);
 
+  console.log("print"+print)
+
   async function lichessProfile(username) {
     try {
       await fetch(`https://lichess.org/api/user/${username}`)
@@ -74,7 +76,6 @@ const LichessProfileComponent = () => {
 
   let atomicRating = JSON.stringify(data?.perfs?.atomic?.rating);
   let hordeRating = JSON.stringify(data?.perfs?.horde?.rating);
-  console.log("Horde = " + hordeRating);
 
   let ubulletGames = JSON.stringify(data?.perfs?.ultraBullet?.games);
   let crazyGames = JSON.stringify(data?.perfs?.crazyhouse?.games);
@@ -174,9 +175,8 @@ const LichessProfileComponent = () => {
     ],
   };
 
-  let showDisplay;
-  if (!print) {
-    showDisplay = (
+  const DisplayWhenUserAbsent = () => {
+    return(
       <Alert variant={"light"}>
         <div className="errorText">
           <h2>
@@ -184,89 +184,95 @@ const LichessProfileComponent = () => {
           </h2>
         </div>
       </Alert>
-    );
-  } else {
-    showDisplay = (
-      <div className="profileContainer">
-        <Container>
-          {/* TitleHead */}
-          <TitleHeadComponent
-            titleOfUser={titleOfUser}
-            srcOfFlag={srcOfFlag}
-            bioOfUser={bioOfUser}
-            seenAt={seenAt}
-            username={username}
-            followers={followers}
-            following={following}
-            isOnline={isOnline}
-          />
-
-          {/* Introduction */}
-          <IntroductionComponent
-            fName={fName}
-            lName={lName}
-            userLink={userLink}
-            totalGames={totalGames}
-            totalDraws={totalDraws}
-            totalWins={totalWins}
-            totalLoss={totalLoss}
-          />
-
-          {/* Ratings */}
-          <RatingsComponent
-            bulletRating={bulletRating}
-            blitzRating={blitzRating}
-            rapidRating={rapidRating}
-            classicalRating={classicalRating}
-            chess960Rating={chess960Rating}
-            antichessRating={antichessRating}
-            checkRating={checkRating}
-            atomicRating={atomicRating}
-            hordeRating={hordeRating}
-          />
-
-          {/* Charts */}
-          <Alert variant={"success"}>
-            <Row>
-              <Col className="fullName">Performance</Col>
-              <Col className="totalGame">
-                {totalGames} :{" "}
-                <span style={{ color: "green" }}>{totalWins} </span> /{" "}
-                <span style={{ color: "blue" }}>{totalDraws} </span> /{" "}
-                <span style={{ color: "red" }}>{totalLoss}</span>
-              </Col>
-            </Row>
-          </Alert>
-          <Alert variant={"dark"}>
-            <div className="doughNutChart">
-              <Doughnut data={datum} options={options} />
-              <section style={{ padding: "5%" }}>
-                <span id="donutText">Total Games Played</span>
-              </section>
-            </div>
-          </Alert>
-          <Alert variant={"dark"}>
-            <div className="pieChart">
-              <Pie data={datum2} options={options} />
-              <section style={{ padding: "5%" }}>
-                <span id="donutText">Total Games Played of Each Variant</span>
-              </section>
-            </div>
-            <div className="doughNutChart"></div>
-          </Alert>
-
-          {/* Puzzle Stats */}
-          <PuzzleStatsComponent
-            racerrun={racerrun}
-            racerscore={racerscore}
-            stormrun={stormrun}
-            stormscore={stormscore}
-            puzzleRating={puzzleRating}
-          />
-        </Container>
-      </div>
-    );
+    )
   }
+
+  const DisplayWhenUserPresent = () => {
+    
+    return (
+      
+      <div className="profileContainer">
+      <Container>
+        {/* TitleHead */}
+        <TitleHeadComponent
+          titleOfUser={titleOfUser}
+          srcOfFlag={srcOfFlag}
+          bioOfUser={bioOfUser}
+          seenAt={seenAt}
+          username={username}
+          followers={followers}
+          following={following}
+          isOnline={isOnline}
+        />
+
+        {/* Introduction */}
+        <IntroductionComponent
+          fName={fName}
+          lName={lName}
+          userLink={userLink}
+          totalGames={totalGames}
+          totalDraws={totalDraws}
+          totalWins={totalWins}
+          totalLoss={totalLoss}
+        />
+
+        {/* Ratings */}
+        <RatingsComponent
+          bulletRating={bulletRating}
+          blitzRating={blitzRating}
+          rapidRating={rapidRating}
+          classicalRating={classicalRating}
+          chess960Rating={chess960Rating}
+          antichessRating={antichessRating}
+          checkRating={checkRating}
+          atomicRating={atomicRating}
+          hordeRating={hordeRating}
+        />
+
+        {/* Charts */}
+        <Alert variant={"success"}>
+          <Row>
+            <Col className="fullName">Performance</Col>
+            <Col className="totalGame">
+              {totalGames} :{" "}
+              <span style={{ color: "green" }}>{totalWins} </span> /{" "}
+              <span style={{ color: "blue" }}>{totalDraws} </span> /{" "}
+              <span style={{ color: "red" }}>{totalLoss}</span>
+            </Col>
+          </Row>
+        </Alert>
+        <Alert variant={"dark"}>
+          <div className="doughNutChart">
+            <Doughnut data={datum} options={options} />
+            <section style={{ padding: "5%" }}>
+              <span id="donutText">Total Games Played</span>
+            </section>
+          </div>
+        </Alert>
+        <Alert variant={"dark"}>
+          <div className="pieChart">
+            <Pie data={datum2} options={options} />
+            <section style={{ padding: "5%" }}>
+              <span id="donutText">Total Games Played of Each Variant</span>
+            </section>
+          </div>
+          <div className="doughNutChart"></div>
+        </Alert>
+
+        {/* Puzzle Stats */}
+        <PuzzleStatsComponent
+          racerrun={racerrun}
+          racerscore={racerscore}
+          stormrun={stormrun}
+          stormscore={stormscore}
+          puzzleRating={puzzleRating}
+        />
+      </Container>
+    </div>
+
+    )
+  }
+
 
   return (
     <div>
@@ -293,7 +299,8 @@ const LichessProfileComponent = () => {
           Get Profile
         </Button>
       </div>
-      {showDisplay};{/* Here I am displaying the component */}
+      { print ? <DisplayWhenUserPresent/> : <DisplayWhenUserAbsent/> };
+      {/* Here I am displaying the component */}
     </div>
   );
 };
