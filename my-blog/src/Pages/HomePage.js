@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import ChessRankings from "../components/ChessRankings";
 import "../App.css";
 
@@ -6,10 +6,9 @@ import ChessMeme from "../assets/chessmeme.jpg";
 import Carousel from "../components/newGallery";
 
 const HomePage = () => {
-
-   useEffect(()=> {
-       document.title = 'ChessMania - Home';
-   },[]);
+  useEffect(() => {
+    document.title = "ChessMania - Home";
+  }, []);
 
   return (
     <>
