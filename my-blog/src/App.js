@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LoadingBar from 'react-top-loading-bar';
 
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
@@ -15,9 +16,21 @@ import LichessProfilePage from "./Pages/LichessProfilePage";
 import Alert from "./components/Alert";
 
 function App() {
+
+  const [progress, setProgressFromUseState] = useState(0);
+
+  const setProgress = (progress) => {
+    setProgressFromUseState({ progress: progress });
+  };
+
   return (
     <Router>
       <div className="App">
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        height={3}
+      />
         <Navbar />
         <Alert type="success" message="welcome to chessmania" />
         <div id="page-body">
@@ -27,7 +40,7 @@ function App() {
             <Route path="/articles-list" component={ArticlesListPage} />
             <Route path="/article/:name" component={ArticlePage} />
             <Route path="/FAQ" component={FAQPage} />
-            <Route path="/lichess-profile" component={LichessProfilePage} />
+            <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={setProgress} /> } />
             <Route component={NotFoundPage} />
           </Switch>
           <TimeZoneComponent />

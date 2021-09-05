@@ -6,12 +6,12 @@ import IntroductionComponent from "./lichessProfileComponents/introduction";
 import RatingsComponent from "./lichessProfileComponents/ratings";
 import PuzzleStatsComponent from "./lichessProfileComponents/puzzleStats";
 
-const LichessProfileComponent = () => {
+const LichessProfileComponent = (props) => {
   const [data, setData] = useState("");
   const [inputData, setInputData] = useState(null);
   const [print, setPrint] = useState(false);
 
-  console.log("print"+print)
+  
 
   async function lichessProfile(username) {
     try {
@@ -19,6 +19,7 @@ const LichessProfileComponent = () => {
         .then((res) => res.json())
         .then((json) => setData(json));
       setPrint(true);
+      props.setProgress(50);
     } catch (e) {
       console.log(e);
     }
