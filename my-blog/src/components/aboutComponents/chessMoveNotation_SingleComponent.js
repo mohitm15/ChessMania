@@ -37,7 +37,7 @@ const ChessMoveNotationSingleComp = (props) => {
             <Card style={{ border: `1px solid ${cardBorderColor} ` }}>
               <Accordion.Toggle
                 as={Card.Header}
-                eventKey="0"
+                eventKey="1"
                 style={{
                   color: accColor,
                   fontWeight: "700",
@@ -51,7 +51,7 @@ const ChessMoveNotationSingleComp = (props) => {
                   <HandIndex color={handiconColor} size={25} />
                 </span>
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey="0">
+              <Accordion.Collapse eventKey="1">
                 <Card.Body>{accBody}</Card.Body>
               </Accordion.Collapse>
             </Card>

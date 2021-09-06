@@ -18,11 +18,11 @@ import Alert from "./components/Alert";
 
 function App() {
 
-  const [progress, setProgressFromUseState] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-  const setProgress = (progress) => {
-    setProgressFromUseState({ progress: progress });
-  };
+  const onProgress = (progress) => {
+    setProgress(progress);
+  }
 
   return (
     <Router>
@@ -40,7 +40,7 @@ function App() {
             <Route path="/articles-list" component={ArticlesListPage} exact/>
             <Route path="/article/:name" component={ArticlePage} exact/>
             <Route path="/FAQ" component={FAQPage} exact/>
-            <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={setProgress} /> } exact/>
+            <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={onProgress} /> } exact/>
             <Route component={NotFoundPage} exact />
           </Switch>
           <TimeZoneComponent />

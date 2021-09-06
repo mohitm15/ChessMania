@@ -46,6 +46,7 @@ const PieceNotation = () => {
                   id="nav-dropdown-dark-example"
                   title={symbol.name}
                   menuvariant="dark"
+                  style={{zIndex:1}}
                 >
                   <NavDropdown.Item onSelect={() => setSymbol(piece[0])}>
                     King
@@ -72,17 +73,17 @@ const PieceNotation = () => {
         </Navbar>
         <div style={{ border: "1px solid black" }} className="my-4">
           <Row style={{ padding: "5%", textAlign: "center" }}>
-            <Col style={{ fontSize: "200%" }}>
+            <Col style={{ fontSize: "200%" , zIndex:-1}}>
               <Alert variant="dark">
                 <img
-                  style={{ height: "50%", width: "50%" }}
+                  style={{ height: "50%", width: "50%"}}
                   src={symbol.imgpath}
                   alt="piece symbol"
                 />
                 {symbol.name}
               </Alert>
             </Col>
-            <Col style={{ fontSize: "510%" }}>
+            <Col style={{ fontSize: "510%" , zIndex:-1}}>
               <Alert variant="dark">{symbol.notation}</Alert>
             </Col>
             <Col style={{ fontSize: "510%" }}>

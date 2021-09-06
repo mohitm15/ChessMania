@@ -6,7 +6,7 @@ import IntroductionComponent from "./lichessProfileComponents/introduction";
 import RatingsComponent from "./lichessProfileComponents/ratings";
 import PuzzleStatsComponent from "./lichessProfileComponents/puzzleStats";
 
-const LichessProfileComponent = (props) => {
+const LichessProfileComponent = params => {
   const [data, setData] = useState("");
   const [inputData, setInputData] = useState(null);
   const [print, setPrint] = useState(false);
@@ -19,7 +19,7 @@ const LichessProfileComponent = (props) => {
         .then((res) => res.json())
         .then((json) => setData(json));
       setPrint(true);
-      props.setProgress(50);
+      params.setProgress(50);
     } catch (e) {
       console.log(e);
     }
