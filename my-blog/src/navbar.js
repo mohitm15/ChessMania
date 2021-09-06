@@ -1,25 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const NavbarComponent = () => {
   return (
     <>
-      <nav variants="pills" style={{ borderBottom: "4px solid black" }}>
-        <ul>
+      <nav variant="pills" className="navbar" style={{ borderBottom: "1px solid white" }}>
+        <ul className="nav nav-pills">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink activeClassName="active" to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink activeClassName="active" to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/articles-list">Articles</Link>
+            <NavLink activeClassName="active" to="/articles-list">Articles</NavLink>
           </li>
           <li>
-            <Link to="/FAQ">FAQ</Link>
+            <NavLink activeClassName="active" to="/FAQ">FAQ</NavLink>
           </li>
           <li>
-            <Link to="/lichess-profile">Li-Pro</Link>
+            <NavLink activeClassName="active" to="/lichess-profile">Li-Pro</NavLink>
           </li>
         </ul>
       </nav>
@@ -27,4 +27,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarComponent;

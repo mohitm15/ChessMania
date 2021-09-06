@@ -10,6 +10,7 @@ const LichessProfilePage = () => {
   return (
     <>
       <div>
+        
         <Jumbotron>
           <h1>Search Any Lichess Profile here ...</h1>
         </Jumbotron>

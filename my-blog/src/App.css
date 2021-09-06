@@ -26,6 +26,7 @@ nav {
   width: 100%;
   background: white;
   z-index: 1;
+  background-color: rgb(27, 19, 27);
 }
 
 nav ul {
@@ -36,20 +37,30 @@ nav ul {
 
 nav li {
   display: inline-block;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
 
 nav a {
   text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 16px 32px;
+  color: white;
+  padding: 10px 32px;
+  font-size: large;
 }
 
-nav a:hover {
-  background: black;
+.navbar {
+  justify-content: space-evenly !important;
+}
+
+.navbar .nav-pills >li >a {
   color: white;
+  
+  }
+
+
+.navbar .nav-pills .active {
+font-weight:bold;
 }
 
 .App {

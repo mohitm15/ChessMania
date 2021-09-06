@@ -8,12 +8,13 @@ import ArticlesListPage from "./Pages/ArticlesListPage";
 import ArticlePage from "./Pages/ArticlePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import FAQPage from "./Pages/FAQPage";
-import Navbar from "./navbar";
+import NavbarComponent from "./navbar";
 import Footer from "./components/Footer";
 import TimeZoneComponent from "./components/Timezone";
 import "./App.css";
 import LichessProfilePage from "./Pages/LichessProfilePage";
 import Alert from "./components/Alert";
+
 
 function App() {
 
@@ -31,17 +32,16 @@ function App() {
         progress={progress}
         height={3}
       />
-        <Navbar />
-        <Alert type="success" message="welcome to chessmania" />
+        <NavbarComponent />
         <div id="page-body">
           <Switch>
             <Route path="/" component={HomePage} exact />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/articles-list" component={ArticlesListPage} />
-            <Route path="/article/:name" component={ArticlePage} />
-            <Route path="/FAQ" component={FAQPage} />
-            <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={setProgress} /> } />
-            <Route component={NotFoundPage} />
+            <Route path="/about" component={AboutPage} exact/>
+            <Route path="/articles-list" component={ArticlesListPage} exact/>
+            <Route path="/article/:name" component={ArticlePage} exact/>
+            <Route path="/FAQ" component={FAQPage} exact/>
+            <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={setProgress} /> } exact/>
+            <Route component={NotFoundPage} exact />
           </Switch>
           <TimeZoneComponent />
         </div>
