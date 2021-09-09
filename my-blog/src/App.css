@@ -121,6 +121,23 @@ textarea {
   align-items: center;
 }
 
+.topheading {
+  text-align: center;
+	font-weight: 600;
+	font-family: 'Titillium Web', sans-serif;
+	position: relative;  
+	font-size: 36px;
+	line-height: 40px;
+	padding: 15px 15px 15px 15px;
+	color: #0f1216;
+	box-shadow: 
+		inset 0 0 0 1px rgba(12, 15, 17, 0.87), 
+		inset 0 0 5px rgba(14, 16, 20, 0.911),
+		inset -285px 0 35px white;
+	border-radius: 0 10px 0 10px;
+}
+
+
 /* Upvote section */
 #upvotes-section {
   text-align: end;
@@ -148,6 +165,8 @@ p {
 /* About Page */
 .about-paragraph {
   text-align: justify;
+  font-size: large;
+  font-family: 'Love Ya Like  Sister';
 }
 .chess-setup {
   text-align: center;

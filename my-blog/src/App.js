@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import TimeZoneComponent from "./components/Timezone";
 import "./App.css";
 import LichessProfilePage from "./Pages/LichessProfilePage";
-import Alert from "./components/Alert";
 
 
 function App() {

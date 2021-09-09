@@ -14,7 +14,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <h1>About Chess</h1>
+      <h1 className='topheading'>About Chess</h1>
       <br />
       <hr />
       <h3 style={{ fontFamily: "Special Elite" }} className="my-3">

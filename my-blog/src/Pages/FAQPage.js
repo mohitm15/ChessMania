@@ -10,7 +10,7 @@ const FAQPage = () => {
   return (
     <>
       <div>
-        <h1>Frequently Asked Questions</h1>
+        <h1 className='topheading'>Frequently Asked Questions</h1>
         <br />
 
         <hr />

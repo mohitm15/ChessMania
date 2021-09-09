@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Jumbotron } from "react-bootstrap";
 import LichessProfileComponent from "../components/lichessProfile";
 
 const LichessProfilePage = () => {
@@ -11,9 +10,7 @@ const LichessProfilePage = () => {
     <>
       <div>
         
-        <Jumbotron>
-          <h1>Search Any Lichess Profile here ...</h1>
-        </Jumbotron>
+          <h1 className='topheading'>Search Any Lichess Profile here ... </h1>
 
         <div>
           <LichessProfileComponent />

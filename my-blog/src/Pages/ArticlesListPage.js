@@ -9,7 +9,7 @@ const ArticlesListPage = () => {
 
   return (
     <>
-      <h1>Here's the Today's Articles !</h1>
+      <h1 className='topheading'>Here's the Today's Articles !</h1>
       <br />
       <hr />
       <ArticleList articlesprops={articleContent} />
