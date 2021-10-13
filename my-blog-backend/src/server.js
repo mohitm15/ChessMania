@@ -159,33 +159,39 @@ app.post("/api/articles/:name/add-comment", (req, res) => {
 //     })
 // })
 
-app.delete("/api/articles/:name/delete-comment", (req, res) => {
-  const articleName = req.params.name;
-  const commentIndex = req.query.q;
+// app.delete("/api/articles/:name/delete-comment", (req, res) => {
+//   const articleName = req.params.name;
+//   const commentIndex = req.query.q;
 
-  withDB(async (db) => {
-    try {
-      const articleInfo = await db.collection('articles').findOne({ name: articleName });
-      let articleAllComment = articleInfo.comments;
-      console.log("before =", articleAllComment)
-      const commentToBeDeleted = articleInfo.comments[commentIndex];
-      //console.log(commentToBeDeleted)
-      // articleAllComment.update({
-      //   $pull: { 'comments':{username: commentToBeDeleted.username }}
-      // });
-      articleAllComment = articleAllComment.filter((item) => item != commentToBeDeleted);
-      await articleAllComment.save();
+//   withDB(async (db) => {
+//     try {
+//       const articleInfo = await db.collection('articles').findOne({ name: articleName });
+//       let articleAllComment = articleInfo.comments;
+//       console.log("before =", articleAllComment)
+//       const commentToBeDeleted = articleInfo.comments[commentIndex];
+//       const username = commentToBeDeleted.username;
+//       console.log(username)
+//       await db.collection('articles').updateOne(
+//         {name:articleName},
+//         {
+//           $filter: {
+//             input : '$comments',
+//             as :"comment",
+//             cond: { $ne: [ "$comments.username", username ] }
+//           },
+//         }
+//       )
 
-      console.log("after - ", articleAllComment);
-      //yaha per index chahiye per kaise milega pta nhi?
-      //articleInfo.comments = gives artcle commet
-      res.status(200).send(articleAllComment);
-    }
-    catch (err) {
-      res.status(500).send("Error occured")
-    }
-  }, res);
+//       console.log("after - ", articleAllComment);
+//       //yaha per index chahiye per kaise milega pta nhi?
+//       //articleInfo.comments = gives artcle commet
+//       res.status(200).send(articleAllComment);
+//     }
+//     catch (err) {
+//       res.status(500).send("Error occured")
+//     }
+//   }, res);
 
-});
+// });
 
 app.listen(8000, () => console.log("Listening to the port 8000"));

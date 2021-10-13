@@ -25,6 +25,7 @@ const LichessProfileComponent = params => {
     }
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => lichessProfile(), []);
 
   let username = JSON.stringify(data.username);
