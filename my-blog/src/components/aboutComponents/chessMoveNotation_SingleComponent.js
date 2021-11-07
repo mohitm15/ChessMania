@@ -4,7 +4,6 @@ import { HandIndex } from "react-bootstrap-icons";
 
 const ChessMoveNotationSingleComp = (props) => {
   let {
-    key,
     h1bgColor,
     h1content,
     cardBorderColor,
@@ -16,7 +15,7 @@ const ChessMoveNotationSingleComp = (props) => {
   } = props;
   return (
     <>
-      <Row key={key} style={{ padding: "5%", textAlign: "center" }}>
+      <Row key={h1bgColor} style={{ padding: "5%", textAlign: "center" }}>
         <Col className="col-2 mx-5">
           <span>
             <h1

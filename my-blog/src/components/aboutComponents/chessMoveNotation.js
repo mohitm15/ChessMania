@@ -96,7 +96,7 @@ const ChessMoveNotation = () => {
       {chessMoveData.map((item, key) => {
         return (
           <ChessMoveNotationSingleComp
-            key={key}
+            key={item.h1bgColor}
             h1bgColor={item.h1bgColor}
             h1content={item.h1content}
             cardBorderColor={item.cardBorderColor}
