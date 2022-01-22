@@ -32,8 +32,8 @@ const LichessProfileComponent = params => {
   let titleOfUser = JSON.stringify(data.title);
 
   let countryOfUSer = JSON.stringify(data?.profile?.country)?.slice(1, -1);
-  let str1 = "https://www.countryflags.io/";
-  let str2 = "/flat/48.png";
+  let str1 = "http://www.geognos.com/api/en/countries/flag/";
+  let str2 = ".png";
   let srcOfFlag = str1.concat(countryOfUSer).concat(str2);
 
   let seenAt = Date(JSON.stringify(data?.createdAt));

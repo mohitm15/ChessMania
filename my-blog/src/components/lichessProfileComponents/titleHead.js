@@ -24,7 +24,7 @@ const TitleHeadComponent = (props) => {
       </Row>
       <Row>
         <Col>
-          <img src={props.srcOfFlag} alt="" />
+          <img src={props.srcOfFlag} alt="country_flag" className="h-75 w-24" />
           <ToastStatusComponent
             bioOfUser={props.bioOfUser}
             seenAt={props.seenAt}

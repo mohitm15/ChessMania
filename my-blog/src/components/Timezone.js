@@ -75,8 +75,8 @@ const TimeZoneComponent = () => {
   };
 
   const readySRC = (city) => {
-    let temp = "https://www.countryflags.io/".concat(cityToCodeMatcher(city));
-    return temp.concat("/shiny/64.png");
+    let temp = "http://www.geognos.com/api/en/countries/flag/".concat(cityToCodeMatcher(city));
+    return temp.concat(".png");
   };
 
   return (
