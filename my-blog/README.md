@@ -1,10 +1,7 @@
 # ChessMania
 
-![chess](https://user-images.githubusercontent.com/35539313/122878555-83b09200-d355-11eb-96f0-7806a50975cf.jpg)
 
 
-
-## Visit the site [here](https://chess-mania-9puy2k77x-mohitm15.vercel.app/)
 
 
 ChessMania is a website to read `Chess Articles`.
@@ -15,6 +12,38 @@ The structure of project directory consists of two folders for front-end and bac
 
 - my-blog
 - my-blog-backend
+
+## Preview
+
+### Live Site 
+
+[Link](https://chess-mania-9puy2k77x-mohitm15.vercel.app/)
+
+### ScreenShots
+
+**Home Page**
+
+![Screenshot from 2022-02-23 19-14-28](https://user-images.githubusercontent.com/35539313/155332154-17e957bf-390f-4c04-99ce-b3f9c85390d5.png)
+
+
+**About Page**
+
+![Screenshot from 2022-02-23 19-15-22](https://user-images.githubusercontent.com/35539313/155332235-ce3b81cc-fa44-48da-acd6-598a52b6d7d1.png)
+
+
+**Articles Page**
+
+![Screenshot from 2022-02-23 19-15-32](https://user-images.githubusercontent.com/35539313/155332332-dc8cb44b-d45e-4ac4-8dd8-c393f67013d6.png)
+
+**FAQs Page**
+
+![Screenshot from 2022-02-23 19-15-45](https://user-images.githubusercontent.com/35539313/155332484-9d4b439b-5734-4349-b9a7-f130ec1294f8.png)
+
+
+**Li-Pro Page**
+
+![Screenshot from 2022-02-23 19-16-19](https://user-images.githubusercontent.com/35539313/155332750-3239a093-0270-4bc7-bea2-2632be1428a1.png)
+
 
 ### Pre-requisites
 
