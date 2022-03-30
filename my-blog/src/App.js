@@ -10,7 +10,6 @@ import NotFoundPage from "./Pages/NotFoundPage";
 import FAQPage from "./Pages/FAQPage";
 import NavbarComponent from "./navbar";
 import Footer from "./components/Footer";
-import TimeZoneComponent from "./components/Timezone";
 import "./App.css";
 import LichessProfilePage from "./Pages/LichessProfilePage";
 
@@ -42,7 +41,7 @@ function App() {
             <Route path="/lichess-profile" render={() => <LichessProfilePage setProgress={onProgress} /> } exact/>
             <Route component={NotFoundPage} exact />
           </Switch>
-          <TimeZoneComponent />
+          
         </div>
         <Footer />
       </div>

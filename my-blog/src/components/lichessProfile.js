@@ -15,7 +15,7 @@ const LichessProfileComponent = params => {
 
   async function lichessProfile(username) {
     try {
-      await fetch(`https://lichess.org/api/user/${username}`)
+      await fetch(`https://lichess.org/api/user/${username || "mohit_maroliya"}`)
         .then((res) => res.json())
         .then((json) => setData(json));
       setPrint(true);
